@@ -1,0 +1,633 @@
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.pexels.com/photos/3822621/pexels-photo-3822621.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.82);
+  transform: scale(1.03);
+}
+
+body.dark-theme .hero-bg {
+  filter: brightness(0.5);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--hero-overlay);
+}
+
+.hero-content-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.hero-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+
+  /* page-container already has padding */
+  padding: 4.5rem 0 5rem;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero-pill-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #cff6e6;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 0.99rem;
+  max-width: 540px;
+  margin: 0 auto 1.8rem;
+  color: #f3efea;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+/* أزرار الهيرو - responsive */
+.hero-btn,
+.hero-btn2 {
+  min-width: 180px;
+  width: auto;
+  max-width: 100%;
+  height: 48px;
+  font-size: 1rem;
+  padding-inline: 1.25rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+}
+
+.hero-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  color: #ffffff;
+}
+
+.hero-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.hero-btn2 {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-soft));
+  color: #ffffff;
+  box-shadow: var(--card-shadow);
+  border: none;
+}
+
+.hero-btn2:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  color: #eae1ff;
+  opacity: 0.95;
+}
+
+.hero-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.hero-meta-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: #cff6e6;
+}
+
+/* RESPONSIVE للهيرو */
+@media (max-width: 992px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-inner {
+    padding: 3rem 0 3.2rem;
+    max-width: 620px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hero-meta {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-inner {
+    padding: 2.5rem 0 2.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 1.9rem;
+  }
+
+  .hero-actions {
+    gap: 0.6rem;
+  }
+
+  .hero-btn,
+  .hero-btn2 {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .hero-meta {
+    gap: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-pill {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.7rem;
+  }
+
+  .hero-title {
+    font-size: 1.7rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+/* ============ END HERO ============ */
+
+/* ============ SECTION (GENERAL) ============ */
+.section {
+  margin-bottom: 4rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+
+.section-eyebrow {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  max-width: 540px;
+  margin: 0.25rem auto 0;
+}
+
+/* ============ FEATURED COURSES GRID ============ */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* كارت الكورس */
+.course-card {
+  background: var(--bg-color-soft);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+body.dark-theme .course-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* الصورة */
+.course-image {
+  position: relative;
+  height: 170px;
+  background-size: cover;
+  background-position: center;
+}
+
+.course-tag {
+  position: absolute;
+  top: 0.75rem;
+  inset-inline-end: 0.75rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  backdrop-filter: blur(6px);
+}
+
+/* SEO/Accessibility: keep background-image design but expose a real <img> to crawlers/screen readers */
+.sr-only-img {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* المحتوى النصي */
+.course-body {
+  padding: 1.1rem 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  flex: 1;
+}
+
+.course-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.course-desc {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* الميتا */
+.course-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.course-price {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+body.dark-theme .course-price {
+  color: var(--primary-soft);
+}
+
+.course-level {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* الفوتر */
+.course-footer {
+  padding: 0 1.25rem 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.course-footer .btn-primary:only-child {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Responsive courses grid */
+@media (max-width: 992px) {
+  .courses-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .courses-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .course-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .course-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ============ CONSULTATION SECTION ============ */
+.consult-section {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.consult-card {
+  background: var(--bg-color-soft);
+  border-radius: 18px;
+  padding: 1.8rem;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+}
+
+body.dark-theme .consult-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.consult-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.consult-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+
+.consult-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.consult-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-bottom: 1.1rem;
+  font-size: 0.85rem;
+}
+
+.consult-meta-pill {
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(168, 140, 255, 0.09);
+  border: 1px solid rgba(168, 140, 255, 0.35);
+  color: var(--primary-color);
+}
+
+body.dark-theme .consult-meta-pill {
+  background: rgba(168, 140, 255, 0.18);
+  border-color: rgba(168, 140, 255, 0.6);
+  color: var(--primary-soft);
+}
+
+.consult-image {
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+.consult-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .consult-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============ WHY NABDAT HAYAH SECTION ============ */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.why-card {
+  background: var(--bg-color-soft);
+  border-radius: 16px;
+  padding: 1.1rem 1rem;
+  text-align: right;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark-theme .why-card {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.why-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+  background: radial-gradient(circle at 30% 20%, #cff6e6, #a88cff);
+  color: #ffffff;
+}
+
+.why-title {
+  font-size: 0.98rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.why-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 992px) {
+  .why-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .why-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ============ TESTIMONIALS SECTION ============ */
+.testimonials-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.3rem;
+}
+
+.testimonial-card {
+  background: var(--bg-color-soft);
+  border-radius: 18px;
+  padding: 1.2rem 1.1rem;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark-theme .testimonial-card {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.testimonial-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  gap: 0.7rem;
+}
+
+.testimonial-user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #cff6e6, #a88cff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.testimonial-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.testimonial-tag {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.testimonial-stars {
+  font-size: 0.85rem;
+  color: #f6b800;
+}
+
+.testimonial-text {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-label {
+  font-size: 0.78rem;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+@media (max-width: 992px) {
+  .testimonials-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ===================== PAGE HERO (إن كنت بتستخدمه في صفحات تانية) ===================== */
+.page-hero {
+  padding: 2.8rem 0 2.2rem;
+  text-align: center;
+}
+
+.page-hero-eyebrow {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.page-hero-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.page-hero-subtitle {
+  font-size: 0.98rem;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin: 0.4rem auto 0;
+  line-height: 1.9;
+}

@@ -1,0 +1,87 @@
+<div class="container py-4" dir="rtl">
+  <div class="head">
+    <div>
+      <h3 class="title">🗂️ طلبات حجز الجلسات</h3>
+      <div class="sub">الطلبات بتظهر هنا فورًا بمجرد إرسالها.</div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab" [class.active]="filter==='new'" (click)="filter='new'">
+        جديد <span class="badge">{{ count('new') }}</span>
+      </button>
+
+      <button class="tab" [class.active]="filter==='in_review'" (click)="filter='in_review'">
+        قيد المراجعة <span class="badge">{{ count('in_review') }}</span>
+      </button>
+
+      <button class="tab" [class.active]="filter==='contacted'" (click)="filter='contacted'">
+        تم التواصل <span class="badge">{{ count('contacted') }}</span>
+      </button>
+
+      <button class="tab" [class.active]="filter==='closed'" (click)="filter='closed'">
+        مُغلق <span class="badge">{{ count('closed') }}</span>
+      </button>
+
+      <button class="tab" [class.active]="filter==='all'" (click)="filter='all'">
+        الكل <span class="badge">{{ all.length }}</span>
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  <div *ngIf="loading" class="alert alert-info">جارٍ التحميل…</div>
+
+  <div class="grid" *ngIf="!loading">
+    <div class="req-card" *ngFor="let r of filtered">
+      <div class="req-top">
+        <div class="who">
+          <div class="name">{{ r.name }}</div>
+          <div class="meta">
+            <span>{{ r.age }} سنة</span>
+            <span>•</span>
+            <span>{{ r.maritalStatus }}</span>
+            <span>•</span>
+            <span>{{ r.nationality }}</span>
+          </div>
+        </div>
+
+        <div class="price">
+          <div class="p">{{ r.price }} {{ r.currency }}</div>
+          <div class="s">الحالة: {{ r.status }}</div>
+        </div>
+      </div>
+
+      <div class="line">
+        <div class="k">الوظيفة</div>
+        <div class="v">{{ r.job }}</div>
+      </div>
+
+      <div class="line">
+        <div class="k">واتساب</div>
+        <div class="v ltr">
+          {{ r.whatsapp }}
+          <a class="wa" [href]="waLink(r.whatsapp)" target="_blank" rel="noopener">فتح واتساب</a>
+        </div>
+      </div>
+
+      <div class="problem">
+        <div class="k">المشكلة الأساسية</div>
+        <div class="v">{{ r.problem }}</div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-ghost" type="button" (click)="setStatus(r.id!, 'in_review')">قيد المراجعة</button>
+        <button class="btn btn-ghost" type="button" (click)="setStatus(r.id!, 'contacted')">تم التواصل</button>
+        <button class="btn btn-primary" type="button" (click)="setStatus(r.id!, 'closed')">إغلاق</button>
+      </div>
+
+      <div class="date">
+        {{ r.createdAt | date:'medium' }}
+      </div>
+    </div>
+
+    <div class="empty" *ngIf="!filtered.length">
+      لا توجد طلبات في هذا القسم.
+    </div>
+  </div>
+</div>

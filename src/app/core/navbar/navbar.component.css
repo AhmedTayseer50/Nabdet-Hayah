@@ -1,0 +1,304 @@
+/* Wrapper */
+.site-header {
+  width: 100%;
+}
+
+/* ====== NAVBAR LAYOUT ====== */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  gap: 1rem;
+
+  /* مهم ضد الـ overflow */
+  flex-wrap: nowrap;
+}
+
+/* ====== LEFT (LOGO) ====== */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.logo-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.logo-text-main {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.logo-text-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* ====== CENTER LINKS (DESKTOP) ====== */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.nav-links a {
+  position: relative;
+  padding-bottom: 0.15rem;
+  cursor: pointer;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -0.25rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease-out;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+/* ====== RIGHT ACTIONS ====== */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+
+  /* بدل nowrap اللي بتكسر الموبايل */
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+
+/* ====== USER INFO ====== */
+.nav-user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+}
+
+.nav-user-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.badge-disabled {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+/* ====== BUTTONS ====== */
+.btn {
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 0.4rem 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-soft));
+  color: #ffffff;
+  box-shadow: var(--card-shadow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+body.dark-theme .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* تخصيصات */
+.btn-admin {
+  border-color: #f0ad4e;
+  color: #8a6d3b;
+}
+
+.btn-logout {
+  border-color: #e57373;
+  color: #c62828;
+}
+
+/* ====== THEME BUTTON ====== */
+.theme-toggle {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-color-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* ====== MOBILE TOGGLE BUTTON ====== */
+.nav-menu-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+
+/* ====== MOBILE PANEL ====== */
+.mobile-panel {
+  display: none;
+  border-top: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+body.dark-theme .mobile-panel {
+  background: rgba(30, 30, 30, 0.75);
+}
+
+@supports (backdrop-filter: blur(16px)) {
+  .mobile-panel {
+    backdrop-filter: blur(16px);
+  }
+}
+
+.mobile-panel.open {
+  display: block;
+}
+
+.mobile-inner {
+  padding-block: 0.75rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.mobile-links {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.mobile-links a {
+  padding: 0.6rem 0.75rem;
+  border-radius: 12px;
+}
+
+.mobile-links a.active {
+  background: rgba(94, 75, 182, 0.12);
+}
+
+.mobile-actions {
+  display: grid;
+  gap: 0.5rem;
+}
+
+/* ====== BREAKPOINTS ====== */
+
+/* تحت 992px: نخفي روابط الديسكتوب ونظهر زر القائمة */
+@media (max-width: 992px) {
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* نخلي العنوان الفرعي يختفي لتقليل الزحمة */
+  .logo-text-sub {
+    display: none;
+  }
+
+  /* نقلل حجم اللوجو شوية */
+  .logo-circle {
+    width: 48px;
+    height: 48px;
+  }
+
+  .nav-actions {
+    overflow-x: auto;
+    flex-shrink: 1;
+    min-width: 0;
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .nav-actions::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* نخلي الـ actions أقل زحمة */
+  .btn {
+    padding: 0.4rem 0.9rem;
+  }
+}
+
+/* موبايل صغير جدًا */
+@media (max-width: 480px) {
+  .logo-text-main {
+    font-size: 0.95rem;
+  }
+
+    .nav {
+    flex-wrap: wrap;
+  }
+  .nav-user-label {
+    max-width: 150px;
+  }
+}

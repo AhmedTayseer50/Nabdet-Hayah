@@ -1,0 +1,35 @@
+<div class="container py-4" dir="rtl">
+  <h3 class="mb-3">كورساتي</h3>
+
+  <ng-container *ngIf="myCourses$ | async as list">
+    <div *ngIf="!list.length" class="alert alert-info">
+      لا توجد كورسات متاحة لك الآن. عندما يمنحك الأدمن صلاحية على كورس سيظهر هنا تلقائيًا.
+    </div>
+
+    <div class="row g-3" *ngIf="list.length">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let c of list">
+        <div class="card h-100 mycourse-card">
+          <img *ngIf="c.thumbnail" [src]="c.thumbnail" class="card-img-top" alt="course" />
+          <div class="card-body">
+            <h5 class="card-title mb-2">{{ c.title || 'بدون عنوان' }}</h5>
+            <p class="card-text text-muted small mb-2">
+              {{ c.description || '' }}
+            </p>
+
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="badge text-bg-secondary" *ngIf="c.categoryId">{{ c.categoryId }}</span>
+              <span class="fw-bold" *ngIf="c.price != null">{{ c.price }} </span>
+            </div>
+          </div>
+
+          <div class="card-footer bg-transparent border-0 pt-0 pb-3 px-3">
+            <!-- تقدر تغيّر اللينك حسب صفحة الكورس عندك -->
+            <a class="btn btn-primary w-100" [routerLink]="['/courses', c.id]">
+              فتح الكورس
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

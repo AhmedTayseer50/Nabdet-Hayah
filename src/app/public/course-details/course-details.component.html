@@ -1,0 +1,291 @@
+    <div class="hero-topbar">
+      <a routerLink="/courses" class="back-link">
+        رجوع لكل الكورسات
+        <span class="back-icon">←</span>
+      </a>
+    </div>
+
+<section class="course-hero" dir="rtl" *ngIf="!loading && course">
+  <div class="container">
+    <!-- ✅ Back Button داخل الـ Hero -->
+    <div class="course-hero-inner">
+      <!-- النص -->
+      <div class="course-hero-text">
+        <div class="course-hero-eyebrow">
+          {{ course?.heroEyebrow || 'برنامج متكامل لفهم جراح الطفولة' }}
+        </div>
+
+        <h1 class="course-hero-title">
+          {{ course?.title || 'اضطراب صدمات الطفولة' }}
+        </h1>
+
+        <p class="course-hero-tagline">
+          {{ course?.heroTagline || 'فهم جراح الطفولة وتحرير أنماط الألم المتكررة ببساطة وعمق.' }}
+        </p>
+
+        <div class="course-hero-meta">
+          <span class="course-hero-pill">
+            مدة البرنامج:
+            {{ course?.programDuration || '8 أسابيع' }}
+          </span>
+
+          <span class="course-hero-pill">
+            {{ course?.level || 'المستوى: من المبتدئ للمتوسط' }}
+          </span>
+
+          <span class="course-hero-pill">
+            {{ course?.targetAudience || 'مناسب لمن يحمل جراحًا قديمة لم تُفهم بعد' }}
+          </span>
+        </div>
+
+        <!-- ✅ زر الشراء يظهر فقط لو مفيش صلاحية -->
+        <div class="course-hero-actions" *ngIf="!canViewLessons">
+          <button class="btn btn-primary" type="button" (click)="goToPurchase()">
+            اشترك الآن في الكورس
+          </button>
+        </div>
+      </div>
+
+      <!-- بوستر -->
+      <div class="course-hero-poster-wrapper">
+        <div class="course-hero-poster">
+          <img
+            [src]="course?.thumbnail || defaultThumbnail"
+            [alt]="course?.title || 'بوستر الكورس'"
+          />
+          <div class="poster-play-badge" *ngIf="introVideoSafeUrl">
+            <div class="poster-play-icon">▶</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- حالة الصلاحيات لمشاهدة الدروس -->
+<div class="container mb-3" *ngIf="!loading && !error">
+  <div
+    *ngIf="canViewLessons && firstLessonId"
+    class="alert alert-primary d-flex justify-content-between align-items-center flex-wrap gap-2"
+  >
+    <span>لديك صلاحية مشاهدة هذا الكورس.</span>
+    <button
+      class="btn btn-outline-primary btn-sm"
+      type="button"
+      (click)="goToLessons()"
+    >
+      اذهب لمشاهدة الدروس
+    </button>
+  </div>
+
+  <div *ngIf="!canViewLessons" class="alert alert-warning">
+    لم يتم منحك الصلاحية لمشاهدة هذا الكورس بعد.
+  </div>
+</div>
+
+<!-- رسائل تحميل / خطأ عامة -->
+<div class="container mb-3" *ngIf="loading">
+  <div class="alert alert-info">جارٍ التحميل…</div>
+</div>
+<div class="container mb-3" *ngIf="error">
+  <div class="alert alert-danger">{{ error }}</div>
+</div>
+
+<!-- =================== معلومات سريعة =================== -->
+<section class="section" *ngIf="!loading && !error">
+  <div class="container course-info-grid">
+
+    <div class="course-info-card">
+      <div class="course-info-label">الهدف من الدراسة</div>
+      <div class="course-info-main">
+        {{ course?.goalTitle || 'فهم جذور الألم وتحرير أنماطه' }}
+      </div>
+      <p class="course-info-text">
+        {{ course?.goalDescription || 'ستتعلم كيف تشكلت جراح الطفولة، وكيف تظهر اليوم في علاقاتك وقراراتك، مع خطوات عملية للبدء في التعافي.' }}
+      </p>
+    </div>
+
+    <div class="course-info-card">
+      <div class="course-info-label">المدة المتوقعة للدراسة</div>
+      <div class="course-info-main">
+        {{ course?.expectedStudyTimeTitle || 'من 6 إلى 8 أسابيع' }}
+      </div>
+      <p class="course-info-text">
+        {{ course?.expectedStudyTimeDescription || 'مشاهدة أسبوعية منظمة، مع تطبيقات بسيطة بين الجلسات حتى تستوعب المحتوى بهدوء ودون ضغط.' }}
+      </p>
+    </div>
+
+    <div class="course-info-card">
+      <div class="course-info-label">الخبرات السابقة المطلوبة</div>
+      <div class="course-info-main">
+        {{ course?.prerequisitesTitle || 'لا تحتاج خبرة نفسية مسبقة' }}
+      </div>
+      <p class="course-info-text">
+        {{ course?.prerequisitesDescription || 'كل ما تحتاجه هو صدق مع نفسك، واستعداد لأن تنظر لجراحك القديمة بعين أكثر رحمة ووعيًا.' }}
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- =================== فيديو تعريفي =================== -->
+<section class="section" *ngIf="introVideoSafeUrl">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">فيديو تعريفي</div>
+      <h2 class="section-title">مقدمة عن الكورس وما الذي ستحصل عليه</h2>
+      <p class="section-subtitle">
+        في هذا الفيديو نوضح لك أهداف البرنامج، طريقة العرض، وما الذي سنمشي فيه خطوة بخطوة داخل رحلتك مع صدمات الطفولة.
+      </p>
+    </div>
+
+    <div class="course-video-wrapper">
+      <div class="course-video-frame">
+        <iframe
+          [src]="introVideoSafeUrl"
+          title="الفيديو التعريفي للكورس"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== محتويات الكورس =================== -->
+<section class="section" *ngIf="!loading && !error">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">محتويات الكورس</div>
+      <h2 class="section-title">ما الذي ستدرسه داخل البرنامج؟</h2>
+      <p class="section-subtitle">
+        المحاضرات مرتبة بطريقة تصاعدية؛ تبدأ من الفهم النظري الهادئ، ثم تنتقل إلى الطبقات الأعمق من التجربة والذاكرة والانفعال.
+      </p>
+    </div>
+
+    <div class="curriculum-list" *ngIf="lectureNames.length; else noCurriculum">
+      <div class="curriculum-item" *ngFor="let name of lectureNames; let i = index">
+        <div class="curriculum-title">
+          المحاضرة {{ i + 1 }} – {{ name || 'بدون عنوان' }}
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noCurriculum>
+      <p class="text-muted text-center">لا يوجد منهج معروض بعد.</p>
+    </ng-template>
+  </div>
+</section>
+
+<!-- =================== آراء المتدربين =================== -->
+<section class="section">
+  <!-- زي ما هو عندك بدون تغيير -->
+  <!-- ... -->
+</section>
+
+<!-- =================== خطة الأسعار =================== -->
+<!-- ✅ اخفاء خطط الأسعار بالكامل لو عنده صلاحية -->
+<section class="section" *ngIf="!loading && !error && !canViewLessons">
+  <!-- نفس كود pricing زي ما هو عندك -->
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">خطط الاشتراك</div>
+      <h2 class="section-title">اختر الطريقة الأنسب لرحلتك</h2>
+      <p class="section-subtitle">
+        يمكنك البدء بخطتك المناسبة الآن، مع إمكانية التدرّج لاحقًا حسب احتياجك وعمق رحلتك مع التعافي.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- الخطة الأساسية -->
+      <article class="pricing-card">
+        <div class="pricing-name">الخطة الأساسية</div>
+        <div class="pricing-badge">لبداية هادئة ومركّزة</div>
+        <div class="pricing-price">399 ر.س</div>
+        <div class="pricing-note">دفع لمرة واحدة – دخول فوري للمحتوى</div>
+        <ul class="pricing-features">
+          <li>الوصول الكامل لجميع الفيديوهات المسجّلة للكورس.</li>
+          <li>تحميل ملفات العمل والتطبيقات العملية.</li>
+          <li>الانضمام إلى جروب واتساب للإعلانات والتنبيهات.</li>
+        </ul>
+        <button class="btn btn-primary" type="button" (click)="goToPurchase()">
+          اشترك بالخطة الأساسية
+        </button>
+      </article>
+
+      <!-- الخطة المتقدمة -->
+      <article class="pricing-card highlight">
+        <div class="pricing-ribbon">الأكثر اختيارًا</div>
+        <div class="pricing-name">خطة المتابعة الجماعية</div>
+        <div class="pricing-badge">لمن يريد دعمًا أكبر وأسئلة مباشرة</div>
+        <div class="pricing-price">549 ر.س</div>
+        <div class="pricing-note">تشمل كل مزايا الخطة الأساسية وأكثر</div>
+        <ul class="pricing-features">
+          <li>الوصول الكامل لجميع الفيديوهات المسجّلة للكورس.</li>
+          <li>جروبات واتساب وفيسبوك للأسئلة والمتابعة العامة.</li>
+          <li>لقاء جماعي مباشر مع الدكتورة لمدة 30 دقيقة في نهاية الكورس.</li>
+        </ul>
+        <button class="btn btn-primary" type="button" (click)="goToPurchase()">
+          اشترك بخطة المتابعة الجماعية
+        </button>
+      </article>
+
+      <!-- الخطة المميّزة -->
+      <article class="pricing-card">
+        <div class="pricing-name">الخطة المميّزة</div>
+        <div class="pricing-badge">لمن يحتاج مساحة خاصة واستشارات أعمق</div>
+        <div class="pricing-price">799 ر.س</div>
+        <div class="pricing-note">أقرب ما يكون لبرنامج شبه فردي</div>
+        <ul class="pricing-features">
+          <li>كل مزايا الخطة المتقدمة بالكامل.</li>
+          <li>لقاء فردي خاص مع الدكتورة لمدة 45 دقيقة لنقاش حالتك الشخصية.</li>
+          <li>خصم 20٪ على جلستين فرديتين إضافيتين (بحد أقصى جلستين).</li>
+        </ul>
+        <button class="btn btn-primary" type="button" (click)="goToPurchase()">
+          اشترك بالخطة المميّزة
+        </button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =================== CTA في أسفل الصفحة =================== -->
+<!-- ✅ اخفاء الزرار الأخير لو عنده صلاحية -->
+<section class="bottom-cta" *ngIf="!canViewLessons">
+  <div class="container">
+    <p>لماذا الانتظار أكثر؟ كل يوم تؤجِّل فيه، يستمر نفس الألم في إعادة نفسه.</p>
+    <button class="btn btn-primary" type="button" (click)="openOfferFromBottomCta()">
+      اضغط هنا للاشتراك الآن
+    </button>
+  </div>
+</section>
+
+<!-- =================== POPUP OFFER =================== -->
+<!-- ✅ يظهر فقط لو مفيش صلاحية -->
+<div
+  class="offer-backdrop"
+  *ngIf="!canViewLessons"
+  [class.show]="showOfferPopup"
+  (click)="onOfferBackdropClick($event)"
+>
+  <div class="offer-popup">
+    <button
+      class="offer-close"
+      type="button"
+      (click)="closeOffer()"
+      aria-label="إغلاق"
+    >
+      ×
+    </button>
+    <div class="offer-heading">عرض خاص بخصم 30٪</div>
+    <div class="offer-badge">لفترة محدودة للمشتركين من هذه الصفحة</div>
+    <p class="offer-text">
+      احصل الآن على خصم 30٪ على كورس "اضطراب صدمات الطفولة" عند إتمام الاشتراك
+      من هذه النافذة، وابدأ رحلتك نحو تعافٍ أعمق وأكثر وعيًا.
+    </p>
+    <button class="btn btn-primary" type="button" (click)="onOfferSubscribe()">
+      اشترك الآن مع خصم 30٪
+    </button>
+  </div>
+</div>

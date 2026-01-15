@@ -1,0 +1,291 @@
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content-wrapper">
+    <div class="page-container">
+      <div class="hero-inner">
+        <div class="hero-pill" i18n="@@home_hero_pill">
+          <span class="hero-pill-dot"></span>
+          منصة نفسية تعليمية مع دكتورة استشاري صحة نفسية
+        </div>
+
+        <h1 class="hero-title" i18n="@@home_hero_title">رحلتك نحو الشفاء تبدأ من هنا</h1>
+
+        <p class="hero-subtitle" i18n="@@home_hero_subtitle">
+          منصة <strong>نبضة حياة</strong> تقدم كورسات نفسية مسجلة وجلسات خاصة
+          تُمكّنك من فهم ذاتك، معالجة جذور الألم، وبناء حياة أكثر سلاماً ووعيًا.
+        </p>
+
+        <div class="hero-actions">
+          <button
+            class="btn btn-ghost hero-btn"
+            routerLink="/consultations"
+            i18n="@@home_hero_cta_consult"
+          >
+            احجز جلسة استشارة
+          </button>
+
+          <a routerLink="/courses" class="btn btn-primary hero-btn2" i18n="@@home_hero_cta_courses">
+            اكتشف الكورسات
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span i18n="@@home_hero_meta_1">
+            <span class="hero-meta-dot"></span>
+            محتوى علمي مبني على مدارس علم النفس الحديثة
+          </span>
+          <span i18n="@@home_hero_meta_2">
+            <span class="hero-meta-dot"></span>
+            متابعة نفسية للحالات عبر برامج خاصة
+          </span>
+          <span i18n="@@home_hero_meta_3">
+            <span class="hero-meta-dot"></span>
+            خصوصية وسرية تامة في كل خطوة
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED TOP 3 COURSES -->
+<section class="section" id="featured-courses">
+  <div class="page-container">
+    <div class="section-header">
+      <div class="section-eyebrow" i18n="@@home_featured_eyebrow">أفضل البرامج</div>
+      <h2 class="section-title" i18n="@@home_featured_title">أكثر الكورسات طلبًا</h2>
+      <p class="section-subtitle" i18n="@@home_featured_subtitle">
+        مجموعة مختارة من أهم البرامج العلاجية والنفسية في منصة نبضة حياة.
+      </p>
+    </div>
+
+    <div class="courses-grid">
+      <article class="course-card" *ngFor="let c of topCourses">
+        <div class="course-image" [style.background-image]="'url(' + c.thumbnail + ')'">
+          <!-- صورة SEO / Accessibility -->
+          <img
+            [src]="c.thumbnail"
+            [alt]="c.title"
+            class="sr-only-img"
+            loading="lazy"
+          />
+
+          <span class="course-tag" i18n="@@home_course_tag_default">
+            {{ c.categoryId || "عام" }}
+          </span>
+        </div>
+
+        <div class="course-body">
+          <h3 class="course-title">{{ c.title }}</h3>
+          <p class="course-desc">{{ c.description }}</p>
+
+          <div class="course-meta">
+            <span class="course-level"></span>
+            <span class="course-price">
+              {{ c.price | currency : "EGP" : "symbol" : "1.0-0" }}
+            </span>
+          </div>
+        </div>
+
+        <!-- ✅ نفس منطق courses-list -->
+        <div class="course-footer">
+          <!-- لو عنده صلاحية: زر واحد -->
+          <button
+            *ngIf="hasAccess(c.id); else normalButtons"
+            class="btn btn-primary"
+            type="button"
+            [routerLink]="['/courses', c.id]"
+            i18n="@@home_course_open"
+          >
+            فتح الكورس
+          </button>
+
+          <!-- الحالة العادية: زرارين -->
+          <ng-template #normalButtons>
+            <button
+              class="btn btn-ghost"
+              type="button"
+              [routerLink]="['/courses', c.id]"
+              i18n="@@home_course_details"
+            >
+              عرض التفاصيل
+            </button>
+
+            <button
+              class="btn btn-primary"
+              type="button"
+              [routerLink]="['/courses', c.id]"
+              i18n="@@home_course_join"
+            >
+              انضم الآن
+            </button>
+          </ng-template>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULTATION SECTION -->
+<section id="consultations" class="section">
+  <div class="page-container">
+    <div class="section-header">
+      <div class="section-eyebrow" i18n="@@home_consult_eyebrow">الاستشارات النفسية</div>
+      <h2 class="section-title" i18n="@@home_consult_title">جلسات فردية بخصوصية تامة</h2>
+      <p class="section-subtitle" i18n="@@home_consult_subtitle">
+        استشارات نفسية مع دكتورة استشاري صحة نفسية، لمساعدتك على فهم ما تمر به،
+        ووضع خطة علاجية تناسبك.
+      </p>
+    </div>
+
+    <div class="consult-section">
+      <div class="consult-card">
+        <div class="consult-label" i18n="@@home_consult_label">جلسات أونلاين</div>
+
+        <h3 class="consult-title" i18n="@@home_consult_card_title">جلسة استشارة نفسية فردية</h3>
+
+        <p class="consult-desc" i18n="@@home_consult_desc">
+          مساحة آمنة للحديث عن كل ما يثقل قلبك وعقلك، مع توجيه مهني يساعدك على
+          رؤية أعمق لذاتك، واتخاذ قرارات أكثر وعيًا.
+        </p>
+
+        <div class="consult-meta-row">
+          <span class="consult-meta-pill" i18n="@@home_consult_meta_1">مدة الجلسة: 50 دقيقة</span>
+          <span class="consult-meta-pill" i18n="@@home_consult_meta_2">أونلاين عبر منصات آمنة</span>
+          <span class="consult-meta-pill" i18n="@@home_consult_meta_3">خصوصية وسرية تامة</span>
+        </div>
+
+        <button class="btn btn-primary" i18n="@@home_consult_cta">احجز موعدًا الآن</button>
+      </div>
+
+      <div class="consult-image">
+        <img
+          src="https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          alt="جلسة استشارة نفسية"
+          i18n-alt="@@home_consult_img_alt"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section" id="why">
+  <div class="page-container">
+    <div class="section-header">
+      <div class="section-eyebrow" i18n="@@home_why_eyebrow">لماذا نبضة حياة؟</div>
+      <h2 class="section-title" i18n="@@home_why_title">منصة نفسية متكاملة</h2>
+      <p class="section-subtitle" i18n="@@home_why_subtitle">
+        ليست مجرد كورسات؛ بل منظومة نفسية متكاملة تجمع بين العلم، الإنسان،
+        والمتابعة العملية لحالتك النفسية.
+      </p>
+    </div>
+
+    <div class="why-grid">
+      <article class="why-card">
+        <div class="why-icon" aria-hidden="true">📚</div>
+        <h3 class="why-title" i18n="@@home_why_card_1_title">محتوى علمي موثوق</h3>
+        <p class="why-text" i18n="@@home_why_card_1_text">
+          كورسات مبنية على أسس علم النفس الإكلينيكي ومدارس العلاج الحديثة، بلغة
+          بسيطة وواعية.
+        </p>
+      </article>
+
+      <article class="why-card">
+        <div class="why-icon" aria-hidden="true">🧠</div>
+        <h3 class="why-title" i18n="@@home_why_card_2_title">متابعة نفسية للحالات</h3>
+        <p class="why-text" i18n="@@home_why_card_2_text">
+          برامج موجهة لمرافقة حالتك النفسية، وليس مجرد معلومات نظرية.
+        </p>
+      </article>
+
+      <article class="why-card">
+        <div class="why-icon" aria-hidden="true">🌿</div>
+        <h3 class="why-title" i18n="@@home_why_card_3_title">تركيز على التعافي والوعي</h3>
+        <p class="why-text" i18n="@@home_why_card_3_text">
+          الهدف هو مساعدتك على العيش بسلام داخلي أكبر، لا مجرد التخلص من العرض.
+        </p>
+      </article>
+
+      <article class="why-card">
+        <div class="why-icon" aria-hidden="true">🔒</div>
+        <h3 class="why-title" i18n="@@home_why_card_4_title">خصوصية وسرية تامة</h3>
+        <p class="why-text" i18n="@@home_why_card_4_text">
+          كل ما تشاركه يظل في مساحة آمنة ومحترمة، تحفظ خصوصيتك وكرامتك.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+  <div class="page-container">
+    <div class="section-header">
+      <div class="section-eyebrow" i18n="@@home_testimonials_eyebrow">آراء المتدربين</div>
+      <h2 class="section-title" i18n="@@home_testimonials_title">تجارب حقيقية من نبضات حية</h2>
+      <p class="section-subtitle" i18n="@@home_testimonials_subtitle">
+        جزء من قصص المتدربين الذين اختاروا البدء في رحلة الشفاء مع نبضة حياة.
+      </p>
+    </div>
+
+    <div class="testimonials-row">
+      <article class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-user">
+            <div class="avatar" i18n="@@home_testimonial_1_avatar">ن</div>
+            <div>
+              <div class="testimonial-name" i18n="@@home_testimonial_1_name">نورة</div>
+              <div class="testimonial-tag" i18n="@@home_testimonial_1_tag">متدربة في صدمات الطفولة</div>
+            </div>
+          </div>
+          <div class="testimonial-stars" aria-label="5 نجوم">★★★★★</div>
+        </div>
+        <p class="testimonial-text" i18n="@@home_testimonial_1_text">
+          لأول مرة أحس إن في حد فاهم الجذر الحقيقي لألمي. الكورس فتح لي أبواب ما
+          كنت أتوقعها، وتعاملي مع نفسي ومع أهلي اختلف تمامًا.
+        </p>
+        <div class="testimonial-label" i18n="@@home_testimonial_1_label">تغيير عميق من الداخل</div>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-user">
+            <div class="avatar" i18n="@@home_testimonial_2_avatar">ر</div>
+            <div>
+              <div class="testimonial-name" i18n="@@home_testimonial_2_name">ريم</div>
+              <div class="testimonial-tag" i18n="@@home_testimonial_2_tag">جلسات استشارة شخصية</div>
+            </div>
+          </div>
+          <div class="testimonial-stars" aria-label="5 نجوم">★★★★★</div>
+        </div>
+        <p class="testimonial-text" i18n="@@home_testimonial_2_text">
+          الجلسات كانت مساحة آمنة جدًا. قدرت أتكلم بدون خوف من الحكم، وطلعت
+          بأفكار وخطوات عملية ساعدتني في قرارات مهمة.
+        </p>
+        <div class="testimonial-label" i18n="@@home_testimonial_2_label">مساحة آمنة ومٌحتوية</div>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-user">
+            <div class="avatar" i18n="@@home_testimonial_3_avatar">س</div>
+            <div>
+              <div class="testimonial-name" i18n="@@home_testimonial_3_name">سارة</div>
+              <div class="testimonial-tag" i18n="@@home_testimonial_3_tag">كورس أعماق النفس البشرية</div>
+            </div>
+          </div>
+          <div class="testimonial-stars" aria-label="5 نجوم">★★★★★</div>
+        </div>
+        <p class="testimonial-text" i18n="@@home_testimonial_3_text">
+          البرنامج ساعدني أفهم ليه أكرر نفس العلاقات ونفس الأخطاء. حسيت إني
+          أتعرفت على نفسي من جديد.
+        </p>
+        <div class="testimonial-label" i18n="@@home_testimonial_3_label">وعي مختلف بالحياة</div>
+      </article>
+    </div>
+  </div>
+</section>

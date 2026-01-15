@@ -1,0 +1,50 @@
+<div class="container py-4" dir="rtl">
+  <a routerLink="/admin/dashboard" class="btn btn-link ps-0 mb-3">&larr; رجوع للوحة التحكم</a>
+  <h3 class="mb-3">🔐 إدارة صلاحيات الوصول للكورسات</h3>
+
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  <div *ngIf="loading" class="alert alert-info">جارٍ التحميل…</div>
+
+  <div class="d-flex align-items-center gap-2 mb-3">
+    <input class="form-control" style="max-width: 320px" [(ngModel)]="q" placeholder="ابحث بالبريد…">
+    <span class="text-muted ms-auto small">المستخدمون: {{ filteredUsers.length }}</span>
+  </div>
+
+  <div class="card" *ngIf="!loading">
+    <div class="list-group list-group-flush">
+      <div class="list-group-item" *ngFor="let u of filteredUsers">
+        <div class="d-flex align-items-center flex-wrap gap-2">
+          <div class="me-auto">
+            <strong>{{ u.email }}</strong>
+            <div class="small text-muted">{{ u.uid }}</div>
+          </div>
+
+          <!-- اختيار الكورس -->
+          <div class="d-flex align-items-center gap-2">
+            <select class="form-select form-select-sm" style="min-width: 280px"
+                    [(ngModel)]="selectedCourse[u.uid]">
+              <option value="">— اختر كورس —</option>
+              <option *ngFor="let c of courses" [value]="c.id">{{ c.title || c.id }}</option>
+            </select>
+            <button class="btn btn-sm btn-primary" (click)="grant(u)">إتاحة</button>
+          </div>
+        </div>
+
+        <!-- الكورسات الممنوحة لهذا المستخدم -->
+        <div class="mt-2">
+          <ng-container *ngIf="(userEnrollments[u.uid]?.length || 0) > 0; else noEnr">
+            <span class="badge text-bg-secondary me-1" *ngFor="let cid of userEnrollments[u.uid]">
+              {{ courseTitle(cid) }}
+              <button class="btn-close btn-close-white btn-close-sm ms-1 align-middle"
+                      title="إلغاء الإتاحة"
+                      (click)="revoke(u, cid)"></button>
+            </span>
+          </ng-container>
+          <ng-template #noEnr>
+            <span class="text-muted small">لا توجد صلاحيات بعد</span>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+/* قائمة الكورسات عموديًا مع تمرير عند الزيادة */
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;                 /* مسافة صغيرة بين العناصر */
+  max-height: 260px;          /* غلّفها بارتفاع مناسب */
+  overflow: auto;             /* تمرير لو زادت */
+  padding: .35rem .5rem;
+  border: 1px solid #dee2e6;  /* إطار خفيف مثل بووتستراب */
+  border-radius: .375rem;
+  background: #fff;
+}
+
+/* ضبط المسافات */
+.course-list .form-check {
+  margin: 0;
+}
+
+/* تحسين بسيط لاتجاه RTL */
+[dir="rtl"] .course-list .form-check-input {
+  margin-inline-start: .5rem;
+  margin-inline-end: 0;
+}

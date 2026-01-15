@@ -1,0 +1,82 @@
+<!-- src/app/learning/lesson-view/lesson-view.component.html -->
+
+<div class="lesson-page" dir="rtl">
+  <!-- Top Bar -->
+  <div class="lesson-topbar">
+    <div class="container topbar-inner">
+      <a [routerLink]="['/courses', courseId]" class="back-link">
+        <span class="back-icon">→</span>
+        رجوع للكورس
+      </a>
+
+      <div class="topbar-meta" *ngIf="!loading && !error">
+        <span class="lessons-count">عدد الدروس: {{ totalLessons }}</span>
+
+        <div class="nav-buttons">
+          <button
+            class="nav-btn"
+            (click)="goPrev()"
+            [disabled]="!hasPrev"
+            type="button"
+          >
+            السابق
+          </button>
+
+          <button
+            class="nav-btn"
+            (click)="goNext()"
+            [disabled]="!hasNext"
+            type="button"
+          >
+            التالي
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="container py-4">
+    <div *ngIf="loading" class="alert alert-info">جارِ التحميل…</div>
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+    <ng-container *ngIf="!loading && !error">
+      <h2 class="lesson-title">{{ title }}</h2>
+
+      <!-- Video -->
+      <div class="video-card" *ngIf="safeUrl">
+        <div class="ratio ratio-16x9">
+          <iframe
+            [src]="safeUrl"
+            style="border: 0"
+            allowfullscreen
+            allow="encrypted-media"
+            title="Lesson video"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Lessons List -->
+      <div class="lessons-card">
+        <div class="lessons-card-header">كل الدروس</div>
+
+        <ul class="lessons-list">
+          <li class="lesson-item" *ngFor="let l of lessons; let i = index">
+            <div class="lesson-item-text">
+              <div class="lesson-item-index">الدرس {{ l.lessonIndex }}</div>
+              <div class="lesson-item-title">{{ l.title || "بدون عنوان" }}</div>
+            </div>
+
+            <button class="watch-btn" (click)="goTo(l.id)" type="button">
+              مشاهدة
+            </button>
+          </li>
+
+          <li class="lesson-empty" *ngIf="!lessons.length">
+            لا توجد دروس بعد.
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+  </div>
+</div>

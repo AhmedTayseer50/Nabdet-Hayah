@@ -1,0 +1,6 @@
+.badge .btn-close {
+  opacity: .8;
+}
+.badge .btn-close:hover {
+  opacity: 1;
+}

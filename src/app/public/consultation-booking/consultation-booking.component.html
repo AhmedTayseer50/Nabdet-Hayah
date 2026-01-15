@@ -1,0 +1,201 @@
+<div class="container py-4" dir="rtl">
+  <div class="book-shell">
+    <div class="book-header">
+      <div class="book-pill">
+        <span class="book-dot"></span>
+        حجز جلسة خاصة
+      </div>
+      <h2 class="book-title">طلب حجز جلسة مع الدكتورة</h2>
+      <p class="book-sub">
+        املأ البيانات التالية وسيتم مراجعة طلبك والتواصل معك عبر واتساب.
+      </p>
+    </div>
+
+    <div class="alert alert-success" *ngIf="sent">
+      ✅ تم إرسال الطلب بنجاح. سيتم التواصل معك قريبًا.
+    </div>
+    <div class="alert alert-danger" *ngIf="error">{{ error }}</div>
+
+    <form class="book-card" [formGroup]="form" (ngSubmit)="submit()">
+      <div class="grid">
+        <div class="field">
+          <label>الاسم *</label>
+          <input
+            class="form-control"
+            formControlName="name"
+            placeholder="اكتب الاسم"
+          />
+          <small
+            class="err"
+            *ngIf="form.get('name')?.touched && form.get('name')?.invalid"
+          >
+            الاسم مطلوب (3 أحرف على الأقل)
+          </small>
+        </div>
+
+        <div class="field">
+          <label>السن *</label>
+          <input
+            class="form-control"
+            type="number"
+            formControlName="age"
+            placeholder="مثال: 28"
+          />
+          <small
+            class="err"
+            *ngIf="form.get('age')?.touched && form.get('age')?.invalid"
+          >
+            أدخل سن صحيح
+          </small>
+        </div>
+
+        <div class="field">
+          <label>الوظيفة *</label>
+          <input
+            class="form-control"
+            formControlName="job"
+            placeholder="مثال: مهندس"
+          />
+          <small
+            class="err"
+            *ngIf="form.get('job')?.touched && form.get('job')?.invalid"
+          >
+            الوظيفة مطلوبة
+          </small>
+        </div>
+
+        <div class="field">
+          <label>الحالة الاجتماعية *</label>
+          <select class="form-select" formControlName="maritalStatus">
+            <option value="">— اختر —</option>
+            <option value="أعزب/عزباء">أعزب/عزباء</option>
+            <option value="متزوج/متزوجة">متزوج/متزوجة</option>
+            <option value="مطلق/مطلقة">مطلق/مطلقة</option>
+            <option value="أرمل/أرملة">أرمل/أرملة</option>
+          </select>
+          <small
+            class="err"
+            *ngIf="
+              form.get('maritalStatus')?.touched &&
+              form.get('maritalStatus')?.invalid
+            "
+          >
+            اختر الحالة الاجتماعية
+          </small>
+        </div>
+
+        <div class="field">
+          <label>رقم واتساب للتواصل *</label>
+          <input
+            class="form-control ltr"
+            formControlName="whatsapp"
+            placeholder="+2010xxxxxxxx"
+          />
+          <small class="hint">اكتب الرقم بصيغة دولية إن أمكن</small>
+          <small
+            class="err"
+            *ngIf="
+              form.get('whatsapp')?.touched && form.get('whatsapp')?.invalid
+            "
+          >
+            أدخل رقم صحيح (8 إلى 15 رقم)
+          </small>
+        </div>
+
+        <div class="field">
+          <label>الجنسية *</label>
+          <select class="form-select" formControlName="nationality">
+            <option value="">— اختر —</option>
+            <option value="مصر">مصر</option>
+            <option value="السعودية">السعودية</option>
+            <option value="الإمارات">الإمارات</option>
+            <option value="الكويت">الكويت</option>
+            <option value="قطر">قطر</option>
+            <option value="الأردن">الأردن</option>
+            <option value="فلسطين">فلسطين</option>
+            <option value="ليبيا">ليبيا</option>
+            <option value="المغرب">المغرب</option>
+            <option value="الجزائر">الجزائر</option>
+            <option value="تونس">تونس</option>
+            <option value="غير ذلك">غير ذلك</option>
+          </select>
+          <small
+            class="err"
+            *ngIf="
+              form.get('nationality')?.touched &&
+              form.get('nationality')?.invalid
+            "
+          >
+            اختر الجنسية
+          </small>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>المشكلة الأساسية *</label>
+        <textarea
+          class="form-control"
+          rows="4"
+          formControlName="problem"
+          placeholder="اكتب وصف مختصر..."
+        ></textarea>
+        <small
+          class="err"
+          *ngIf="form.get('problem')?.touched && form.get('problem')?.invalid"
+        >
+          اكتب وصف لا يقل عن 10 أحرف
+        </small>
+      </div>
+
+      <div class="policy">
+        <label class="policy-row">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            formControlName="acceptedPolicy"
+          />
+          <span>
+            أقرّ أني قرأت المعلومة الهامة: الدكتورة لا تتعامل مع محتوى المشاكل
+            الخاصة بالشذوذ الجنسي والمازوخية.
+          </span>
+        </label>
+        <small
+          class="err"
+          *ngIf="
+            form.get('acceptedPolicy')?.touched &&
+            form.get('acceptedPolicy')?.invalid
+          "
+        >
+          يجب الموافقة لإرسال الطلب
+        </small>
+      </div>
+
+      <div class="price-box">
+        <div class="price-label">سعر الجلسة حسب الجنسية</div>
+        <div class="price-value">{{ priceText }}</div>
+      </div>
+      <!-- 
+      <div class="actions">
+        <button class="btn btn-primary" type="submit" [disabled]="sending || form.invalid">
+          {{ sending ? 'جارٍ الإرسال...' : 'إرسال طلب الحجز' }}
+        </button>
+
+        <a class="btn btn-ghost" routerLink="/consultations">رجوع</a>
+      </div> -->
+
+      <div class="actions">
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="sending || form.invalid"
+        >
+          {{ sending ? "جارٍ الإرسال..." : "إرسال طلب الحجز" }}
+        </button>
+
+        <!-- ✅ TEST button -->
+
+        <a class="btn btn-ghost" routerLink="/consultations">رجوع</a>
+      </div>
+    </form>
+  </div>
+</div>

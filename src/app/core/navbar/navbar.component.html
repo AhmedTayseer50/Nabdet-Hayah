@@ -1,0 +1,205 @@
+<header dir="rtl" class="site-header">
+  <div class="page-container nav">
+    <!-- الشعار + اسم المنصّة -->
+    <div class="nav-left">
+      <div class="logo-circle">
+        <a routerLink="/" fragment="hero">
+          <img src="assets/images/life puls 2.png" i18n-alt alt="نبضة حياة" />
+        </a>
+      </div>
+
+      <div class="logo-text-wrapper">
+        <span class="logo-text-main" i18n>نبضة حياة</span>
+        <span class="logo-text-sub" i18n>منصة للصحة النفسية والتعليم</span>
+      </div>
+    </div>
+
+    <!-- زر القائمة للموبايل -->
+    <button
+      class="nav-menu-toggle"
+      type="button"
+      i18n-aria-label
+      aria-label="القائمة"
+      [attr.aria-expanded]="isMenuOpen"
+      (click)="isMenuOpen = !isMenuOpen"
+    >
+      ☰
+    </button>
+
+    <!-- روابط الديسكتوب -->
+    <nav class="nav-links">
+      <a routerLink="/" fragment="hero" routerLinkActive="active" i18n>الرئيسية</a>
+      <a routerLink="/courses" routerLinkActive="active" i18n>الكورسات</a>
+      <a routerLink="/diplomas" routerLinkActive="active" i18n>الدبلومات</a>
+      <a
+        routerLink="/consultations"
+        routerLinkActive="active"
+        class="constlut"
+        i18n
+      >
+        الاستشارات
+      </a>
+      <a routerLink="/about" routerLinkActive="active" i18n>عن الدكتورة</a>
+      <a routerLink="/contact" routerLinkActive="active" i18n>تواصل</a>
+    </nav>
+
+    <!-- أزرار الديسكتوب -->
+    <div class="nav-actions">
+      <!-- زر الثيم -->
+      <button
+        id="themeToggle"
+        class="theme-toggle"
+        type="button"
+        (click)="toggleTheme()"
+        i18n-aria-label
+        aria-label="تغيير الوضع"
+        [attr.title]="isDarkTheme ? 'الوضع الفاتح' : 'الوضع الداكن'"
+      >
+        {{ isDarkTheme ? "☀️" : "🌙" }}
+      </button>
+
+      <!-- زر اللغة -->
+      <button
+        class="btn btn-ghost"
+        type="button"
+        (click)="switchLanguage()"
+        i18n-aria-label
+        [attr.aria-label]="
+          currentLang === 'ar' ? 'Switch to English' : 'التبديل إلى العربية'
+        "
+      >
+        {{ currentLang === "ar" ? "EN" : "AR" }}
+      </button>
+
+      <!-- غير مسجّل -->
+      <ng-container *ngIf="!(auth.isLoggedIn$ | async); else loggedIn">
+        <button class="btn btn-ghost" type="button" routerLink="/login" i18n>
+          دخول
+        </button>
+        <button class="btn btn-primary" type="button" routerLink="/register" i18n>
+          حساب جديد
+        </button>
+      </ng-container>
+
+      <!-- مسجّل -->
+      <ng-template #loggedIn>
+        <div class="nav-user-info">
+          <span *ngIf="auth.user$ | async as u" class="nav-user-label" i18n>
+            مرحبًا، {{ u.email }}
+          </span>
+          <span *ngIf="isDisabled" class="badge-disabled" i18n>حساب معطّل</span>
+
+          <button class="btn btn-ghost" type="button" routerLink="/my-courses" i18n>
+            كورساتي
+          </button>
+        </div>
+
+        <button
+          *ngIf="(isAdmin || isStaff) && !isDisabled"
+          class="btn btn-ghost"
+          type="button"
+          [routerLink]="isAdmin ? '/admin/cases' : '/staff/cases'"
+        >
+          <span i18n>Cases</span>
+        </button>
+
+        <button
+          *ngIf="isAdmin && !isDisabled"
+          class="btn btn-ghost btn-admin"
+          type="button"
+          routerLink="/admin/dashboard"
+        >
+          <span i18n>Dashboard</span>
+        </button>
+
+        <button class="btn btn-ghost" type="button" routerLink="/profile" i18n>
+          الملف الشخصي
+        </button>
+
+        <button
+          class="btn btn-ghost btn-logout"
+          type="button"
+          (click)="auth.logout()"
+          i18n
+        >
+          خروج
+        </button>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- ✅ Mobile Panel -->
+  <div class="mobile-panel" [class.open]="isMenuOpen">
+    <div class="page-container mobile-inner">
+      <nav class="mobile-links" (click)="isMenuOpen = false">
+        <a routerLink="/" fragment="hero" routerLinkActive="active" i18n>الرئيسية</a>
+        <a routerLink="/courses" routerLinkActive="active" i18n>الكورسات</a>
+        <a routerLink="/diplomas" routerLinkActive="active" i18n>الدبلومات</a>
+        <a routerLink="/consultations" routerLinkActive="active" i18n>الاستشارات</a>
+        <a routerLink="/about" routerLinkActive="active" i18n>عن الدكتورة</a>
+        <a routerLink="/contact" routerLinkActive="active" i18n>تواصل</a>
+      </nav>
+
+      <div class="mobile-actions" (click)="isMenuOpen = false">
+        <!-- زر اللغة (Mobile) -->
+        <button
+          class="btn btn-ghost w-100"
+          type="button"
+          (click)="switchLanguage()"
+          i18n-aria-label
+          [attr.aria-label]="
+            currentLang === 'ar' ? 'Switch to English' : 'التبديل إلى العربية'
+          "
+        >
+          {{ currentLang === "ar" ? "EN" : "AR" }}
+        </button>
+
+        <ng-container *ngIf="!(auth.isLoggedIn$ | async); else loggedInMobile">
+          <button class="btn btn-ghost w-100" type="button" routerLink="/login" i18n>
+            دخول
+          </button>
+          <button class="btn btn-primary w-100" type="button" routerLink="/register" i18n>
+            حساب جديد
+          </button>
+        </ng-container>
+
+        <ng-template #loggedInMobile>
+          <button class="btn btn-ghost w-100" type="button" routerLink="/my-courses" i18n>
+            كورساتي
+          </button>
+
+          <button
+            *ngIf="(isAdmin || isStaff) && !isDisabled"
+            class="btn btn-ghost w-100"
+            type="button"
+            [routerLink]="isAdmin ? '/admin/cases' : '/staff/cases'"
+          >
+            <span i18n>Cases</span>
+          </button>
+
+          <button
+            *ngIf="isAdmin && !isDisabled"
+            class="btn btn-ghost btn-admin w-100"
+            type="button"
+            routerLink="/admin/dashboard"
+          >
+            <span i18n>Dashboard</span>
+          </button>
+
+          <button class="btn btn-ghost w-100" type="button" routerLink="/profile" i18n>
+            الملف الشخصي
+          </button>
+
+          <button
+            class="btn btn-ghost btn-logout w-100"
+            type="button"
+            (click)="auth.logout()"
+            i18n
+          >
+            خروج
+          </button>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</header>

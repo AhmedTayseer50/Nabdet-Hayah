@@ -1,0 +1,26 @@
+<div class="page-container py-4">
+  <div class="profile-wrapper">
+    <div class="profile-card">
+      <div class="profile-header">
+        <h2 class="profile-title">الملف الشخصي</h2>
+        <p class="profile-subtitle">بيانات الحساب الأساسية</p>
+      </div>
+
+      <div class="profile-body">
+        <ng-container *ngIf="email$ | async as email; else notLoggedIn">
+          <div class="info-row">
+            <span class="label">البريد الإلكتروني</span>
+            <span class="value">{{ email }}</span>
+          </div>
+        </ng-container>
+
+        <ng-template #notLoggedIn>
+          <div class="empty-state">
+            <div class="empty-title">غير مسجل الدخول</div>
+            <div class="empty-subtitle">من فضلك سجّل الدخول لعرض بيانات الحساب.</div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+
+      <trans-unit id="1152015693471194400" datatype="html">
+        <source>نبضة حياة</source>
+        <target>Nabdah Hayah</target>
+      </trans-unit>
+
+      <trans-unit id="7935153659626812438" datatype="html">
+        <source>منصة للصحة النفسية والتعليم</source>
+        <target>Mental Health & Education Platform</target>
+      </trans-unit>
+
+      <trans-unit id="6909046605963142271" datatype="html">
+        <source>القائمة</source>
+        <target>Menu</target>
+      </trans-unit>
+
+      <trans-unit id="5896476729491647130" datatype="html">
+        <source>الرئيسية</source>
+        <target>Home</target>
+      </trans-unit>
+
+      <trans-unit id="7738948830253305185" datatype="html">
+        <source>الكورسات</source>
+        <target>Courses</target>
+      </trans-unit>
+
+      <trans-unit id="6921251900815919748" datatype="html">
+        <source>الدبلومات</source>
+        <target>Diplomas</target>
+      </trans-unit>
+
+      <trans-unit id="7126736703579246278" datatype="html">
+        <source> الاستشارات </source>
+        <target>Consultations</target>
+      </trans-unit>
+
+      <trans-unit id="1290431441074778079" datatype="html">
+        <source>عن الدكتورة</source>
+        <target>About the Doctor</target>
+      </trans-unit>
+
+      <trans-unit id="1885903461072966202" datatype="html">
+        <source>تواصل</source>
+        <target>Contact</target>
+      </trans-unit>
+
+      <trans-unit id="7595438448549829066" datatype="html">
+        <source>تغيير الوضع</source>
+        <target>Toggle Theme</target>
+      </trans-unit>
+
+      <trans-unit id="460269749123164826" datatype="html">
+        <source> دخول </source>
+        <target>Login</target>
+      </trans-unit>
+
+      <trans-unit id="9148745601540834162" datatype="html">
+        <source> حساب جديد </source>
+        <target>Register</target>
+      </trans-unit>
+
+      <trans-unit id="1970019115624026220" datatype="html">
+        <source> مرحبًا، <x id="INTERPOLATION" equiv-text="{{ u.email }}"/> </source>
+        <target>Hello, <x id="INTERPOLATION" equiv-text="{{ u.email }}"/></target>
+      </trans-unit>
+
+      <trans-unit id="580349602669558247" datatype="html">
+        <source>حساب معطّل</source>
+        <target>Account Disabled</target>
+      </trans-unit>
+
+      <trans-unit id="22464362655476342" datatype="html">
+        <source> كورساتي </source>
+        <target>My Courses</target>
+      </trans-unit>
+
+      <trans-unit id="6821871031768267042" datatype="html">
+        <source> الملف الشخصي </source>
+        <target>Profile</target>
+      </trans-unit>
+
+      <trans-unit id="2414892305215743892" datatype="html">
+        <source> خروج </source>
+        <target>Logout</target>
+      </trans-unit>
+
+      <trans-unit id="7507085789803157481" datatype="html">
+        <source>الاستشارات</source>
+        <target>Consultations</target>
+      </trans-unit>
+
+      <!-- New translations added -->
+
+      <trans-unit id="9064979754952574225" datatype="html">
+        <source>إنشاء حساب</source>
+        <target>Create Account</target>
+      </trans-unit>
+
+      <trans-unit id="5505730230573298366" datatype="html">
+        <source>البريد الإلكتروني</source>
+        <target>Email</target>
+      </trans-unit>
+
+      <trans-unit id="4630260391192426648" datatype="html">
+        <source>كلمة المرور</source>
+        <target>Password</target>
+      </trans-unit>
+
+      <trans-unit id="429088543149366046" datatype="html">
+        <source>تسجيل</source>
+        <target>Register</target>
+      </trans-unit>
+
+      <trans-unit id="6223432864390216980" datatype="html">
+        <source>لديك حساب؟ دخول</source>
+        <target>Have an account? Login</target>
+      </trans-unit>
+
+      <trans-unit id="home_hero_pill" datatype="html">
+        <source>{$START_TAG_SPAN}{$CLOSE_TAG_SPAN} منصة نفسية تعليمية مع دكتورة استشاري صحة نفسية </source>
+        <target>{$START_TAG_SPAN}{$CLOSE_TAG_SPAN} Educational psychological platform with a consultant psychiatrist</target>
+      </trans-unit>
+
+      <trans-unit id="home_hero_title" datatype="html">
+        <source>رحلتك نحو الشفاء تبدأ من هنا</source>
+        <target>Your journey to healing starts here</target>
+      </trans-unit>
+
+      <trans-unit id="home_hero_subtitle" datatype="html">
+        <source> منصة {$START_TAG_STRONG}نبضة حياة{$CLOSE_TAG_STRONG} تقدم كورسات نفسية مسجلة وجلسات خاصة تُمكّنك من فهم ذاتك، معالجة جذور الألم، وبناء حياة أكثر سلاماً ووعيًا. </source>
+        <target> {$START_TAG_STRONG}Nabdah Hayah{$CLOSE_TAG_STRONG} platform offers recorded psychological courses and private sessions that enable you to understand yourself, treat the roots of pain, and build a more peaceful and conscious life. </target>
+      </trans-unit>
+
+      <trans-unit id="home_hero_cta_consult" datatype="html">
+        <source> احجز جلسة استشارة </source>
+        <target> Book a consultation session </target>
+      </trans-unit>
+
+      <trans-unit id="home_hero_cta_courses" datatype="html">
+        <source> اكتشف الكورسات </source>
+        <target> Discover the courses </target>
+      </trans-unit>
+
+      <trans-unit id="home_hero_meta_1" datatype="html">
+        <source>{$START_TAG_SPAN}{$CLOSE_TAG_SPAN} محتوى علمي مبني على مدارس علم النفس الحديثة </source>
+        <target>{$START_TAG_SPAN}{$CLOSE_TAG_SPAN} Scientific content based on modern schools of psychology </target>
+      </trans-unit>
+
+      <trans-unit id="home_hero_meta_2" datatype="html">
+        <source>{$START_TAG_SPAN}{$CLOSE_TAG_SPAN} متابعة نفسية للحالات عبر برامج خاصة </source>
+        <target>{$START_TAG_SPAN}{$CLOSE_TAG_SPAN} Psychological follow-up for cases through special programs </target>
+      </trans-unit>
+
+      <trans-unit id="home_hero_meta_3" datatype="html">
+        <source>{$START_TAG_SPAN}{$CLOSE_TAG_SPAN} خصوصية وسرية تامة في كل خطوة </source>
+        <target>{$START_TAG_SPAN}{$CLOSE_TAG_SPAN} Complete privacy and confidentiality at every step </target>
+      </trans-unit>
+
+      <trans-unit id="home_featured_eyebrow" datatype="html">
+        <source>أفضل البرامج</source>
+        <target>Best Programs</target>
+      </trans-unit>
+
+      <trans-unit id="home_featured_title" datatype="html">
+        <source>أكثر الكورسات طلبًا</source>
+        <target>Most Requested Courses</target>
+      </trans-unit>
+
+      <trans-unit id="home_featured_subtitle" datatype="html">
+        <source> مجموعة مختارة من أهم البرامج العلاجية والنفسية في منصة نبضة حياة. </source>
+        <target> A selected group of the most important therapeutic and psychological programs on the Nabdah Hayah platform. </target>
+      </trans-unit>
+
+      <trans-unit id="home_course_tag_default" datatype="html">
+        <source> {$INTERPOLATION} </source>
+        <target> {$INTERPOLATION} </target>
+      </trans-unit>
+
+      <trans-unit id="home_course_open" datatype="html">
+        <source> فتح الكورس </source>
+        <target> Open Course </target>
+      </trans-unit>
+
+      <trans-unit id="home_course_details" datatype="html">
+        <source> عرض التفاصيل </source>
+        <target> View Details </target>
+      </trans-unit>
+
+      <trans-unit id="home_course_join" datatype="html">
+        <source> انضم الآن </source>
+        <target> Join Now </target>
+      </trans-unit>
+
+      <trans-unit id="title_home" datatype="html">
+        <source>الرئيسية</source>
+        <target>Home</target>
+      </trans-unit>
+
+      <trans-unit id="title_about" datatype="html">
+        <source>عن الدكتورة</source>
+        <target>About the Doctor</target>
+      </trans-unit>
+
+      <trans-unit id="title_courses" datatype="html">
+        <source>الكورسات</source>
+        <target>Courses</target>
+      </trans-unit>
+
+      <trans-unit id="title_course_details" datatype="html">
+        <source>تفاصيل الكورس</source>
+        <target>Course Details</target>
+      </trans-unit>
+
+      <trans-unit id="title_consultations" datatype="html">
+        <source>الاستشارات</source>
+        <target>Consultations</target>
+      </trans-unit>
+
+      <trans-unit id="title_contact" datatype="html">
+        <source>تواصل</source>
+        <target>Contact</target>
+      </trans-unit>
+
+      <trans-unit id="title_book_session" datatype="html">
+        <source>حجز جلسة</source>
+        <target>Book Session</target>
+      </trans-unit>
+
+      <trans-unit id="title_lesson_view" datatype="html">
+        <source>الدرس</source>
+        <target>Lesson</target>
+      </trans-unit>
+
+      <trans-unit id="title_my_courses" datatype="html">
+        <source>كورساتي</source>
+        <target>My Courses</target>
+      </trans-unit>
+
+      <trans-unit id="title_profile" datatype="html">
+        <source>الملف الشخصي</source>
+        <target>Profile</target>
+      </trans-unit>
+
+      <trans-unit id="title_settings" datatype="html">
+        <source>الإعدادات</source>
+        <target>Settings</target>
+      </trans-unit>
+
+      <trans-unit id="title_diplomas" datatype="html">
+        <source>الدبلومات</source>
+        <target>Diplomas</target>
+      </trans-unit>
+
+      <trans-unit id="title_diploma_details" datatype="html">
+        <source>تفاصيل الدبلومة</source>
+        <target>Diploma Details</target>
+      </trans-unit>
+
+      <trans-unit id="title_staff_cases" datatype="html">
+        <source>الحالات</source>
+        <target>Cases</target>
+      </trans-unit>
+
+      <trans-unit id="title_admin_dashboard" datatype="html">
+        <source>لوحة التحكم</source>
+        <target>Dashboard</target>
+      </trans-unit>
+
+      <trans-unit id="title_admin_course_editor" datatype="html">
+        <source>إدارة الكورسات</source>
+        <target>Course Management</target>
+      </trans-unit>
+
+      <trans-unit id="title_admin_course_editor_edit" datatype="html">
+        <source>تعديل الكورس</source>
+        <target>Edit Course</target>
+      </trans-unit>
+
+      <trans-unit id="title_admin_users" datatype="html">
+        <source>المستخدمين</source>
+        <target>Users</target>
+      </trans-unit>
+
+      <trans-unit id="title_admin_cases" datatype="html">
+        <source>الحالات</source>
+        <target>Cases</target>
+      </trans-unit>
+
+      <trans-unit id="title_admin_access" datatype="html">
+        <source>الصلاحيات</source>
+        <target>Permissions</target>
+      </trans-unit>
+
+      <trans-unit id="title_admin_sales_analytics" datatype="html">
+        <source>تحليلات المبيعات</source>
+        <target>Sales Analytics</target>
+      </trans-unit>
+
+      <trans-unit id="title_admin_diploma_editor" datatype="html">
+        <source>إدارة الدبلومات</source>
+        <target>Diploma Management</target>
+      </trans-unit>
+
+      <trans-unit id="title_admin_diploma_editor_edit" datatype="html">
+        <source>تعديل الدبلومة</source>
+        <target>Edit Diploma</target>
+      </trans-unit>
+
+      <trans-unit id="title_admin_session_requests" datatype="html">
+        <source>طلبات الجلسات</source>
+        <target>Session Requests</target>
+      </trans-unit>
+
+      <trans-unit id="title_login" datatype="html">
+        <source>دخول</source>
+        <target>Login</target>
+      </trans-unit>
+
+      <trans-unit id="title_register" datatype="html">
+        <source>حساب جديد</source>
+        <target>New Account</target>
+      </trans-unit>
+
+      <trans-unit id="title_forgot_password" datatype="html">
+        <source>نسيت كلمة المرور</source>
+        <target>Forgot Password</target>
+      </trans-unit>
+
+      <trans-unit id="app_name" datatype="html">
+        <source>نبضة حياة</source>
+        <target>Nabdah Hayah</target>
+      </trans-unit>
+
+      <trans-unit id="4529372112865406379" datatype="html">
+        <source>Cases</source>
+        <target>Cases</target>
+      </trans-unit>
+
+      <trans-unit id="6570363013146073520" datatype="html">
+        <source>Dashboard</source>
+        <target>Dashboard</target>
+      </trans-unit>
+
+      <trans-unit id="7582772216721712982" datatype="html">
+        <source>روابط سريعة</source>
+        <target>Quick Links</target>
+      </trans-unit>
+
+      <trans-unit id="8260477600354468826" datatype="html">
+        <source>الأسئلة الشائعة</source>
+        <target>FAQ</target>
+      </trans-unit>
+
+      <trans-unit id="6740505671649764860" datatype="html">
+        <source>تابعنا</source>
+        <target>Follow Us</target>
+      </trans-unit>
+
+      <trans-unit id="8790918354594417962" datatype="html">
+        <source>Facebook</source>
+        <target>Facebook</target>
+      </trans-unit>
+
+      <trans-unit id="3080109816219994129" datatype="html">
+        <source>Instagram</source>
+        <target>Instagram</target>
+      </trans-unit>
+
+      <trans-unit id="8401085193044135025" datatype="html">
+        <source>YouTube</source>
+        <target>YouTube</target>
+      </trans-unit>
+
+      <trans-unit id="8307602980487099346" datatype="html">
+        <source>TikTok</source>
+        <target>TikTok</target>
+      </trans-unit>
+
+    </body>
+  </file>
+</xliff>

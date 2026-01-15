@@ -1,0 +1,912 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="ar" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="title_home" datatype="html">
+        <source>الرئيسية</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_about" datatype="html">
+        <source>عن الدكتورة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_courses" datatype="html">
+        <source>الكورسات</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_course_details" datatype="html">
+        <source>تفاصيل الكورس</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_consultations" datatype="html">
+        <source>الاستشارات</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_contact" datatype="html">
+        <source>تواصل</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_book_session" datatype="html">
+        <source>حجز جلسة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_lesson_view" datatype="html">
+        <source>الدرس</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_my_courses" datatype="html">
+        <source>كورساتي</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">98</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_profile" datatype="html">
+        <source>الملف الشخصي</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_settings" datatype="html">
+        <source>الإعدادات</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">112</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_diplomas" datatype="html">
+        <source>الدبلومات</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">118</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_diploma_details" datatype="html">
+        <source>تفاصيل الدبلومة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">123</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_staff_cases" datatype="html">
+        <source>الحالات</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">131</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_admin_dashboard" datatype="html">
+        <source>لوحة التحكم</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">142</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_admin_course_editor" datatype="html">
+        <source>إدارة الكورسات</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">147</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_admin_course_editor_edit" datatype="html">
+        <source>تعديل الكورس</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">152</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_admin_users" datatype="html">
+        <source>المستخدمين</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">157</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_admin_cases" datatype="html">
+        <source>الحالات</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">162</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_admin_access" datatype="html">
+        <source>الصلاحيات</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">167</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_admin_sales_analytics" datatype="html">
+        <source>تحليلات المبيعات</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">172</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_admin_diploma_editor" datatype="html">
+        <source>إدارة الدبلومات</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">177</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_admin_diploma_editor_edit" datatype="html">
+        <source>تعديل الدبلومة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">182</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_admin_session_requests" datatype="html">
+        <source>طلبات الجلسات</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">189</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_login" datatype="html">
+        <source>دخول</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">200</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_register" datatype="html">
+        <source>حساب جديد</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">205</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title_forgot_password" datatype="html">
+        <source>نسيت كلمة المرور</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app-routing.module.ts</context>
+          <context context-type="linenumber">210</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9064979754952574225" datatype="html">
+        <source>إنشاء حساب</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5505730230573298366" datatype="html">
+        <source>البريد الإلكتروني</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4630260391192426648" datatype="html">
+        <source>كلمة المرور</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="429088543149366046" datatype="html">
+        <source>تسجيل</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6223432864390216980" datatype="html">
+        <source>لديك حساب؟ دخول</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1152015693471194400" datatype="html">
+        <source>نبضة حياة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7935153659626812438" datatype="html">
+        <source>منصة للصحة النفسية والتعليم</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7582772216721712982" datatype="html">
+        <source>روابط سريعة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5896476729491647130" datatype="html">
+        <source>الرئيسية</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">135</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7738948830253305185" datatype="html">
+        <source>الكورسات</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">136</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7507085789803157481" datatype="html">
+        <source>الاستشارات</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">138</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1290431441074778079" datatype="html">
+        <source>عن الدكتورة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">139</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1885903461072966202" datatype="html">
+        <source>تواصل</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">140</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8260477600354468826" datatype="html">
+        <source>الأسئلة الشائعة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6740505671649764860" datatype="html">
+        <source>تابعنا</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8790918354594417962" datatype="html">
+        <source>Facebook</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3080109816219994129" datatype="html">
+        <source>Instagram</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8401085193044135025" datatype="html">
+        <source>YouTube</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8307602980487099346" datatype="html">
+        <source>TikTok</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/footer/footer.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6909046605963142271" datatype="html">
+        <source>القائمة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6921251900815919748" datatype="html">
+        <source>الدبلومات</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">137</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7126736703579246278" datatype="html">
+        <source> الاستشارات </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">39,41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7595438448549829066" datatype="html">
+        <source>تغيير الوضع</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="460269749123164826" datatype="html">
+        <source> دخول </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">76,78</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">158,160</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9148745601540834162" datatype="html">
+        <source> حساب جديد </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">79,81</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">161,163</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1970019115624026220" datatype="html">
+        <source> مرحبًا، <x id="INTERPOLATION" equiv-text="{{ u.email }}"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">87,89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="580349602669558247" datatype="html">
+        <source>حساب معطّل</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="22464362655476342" datatype="html">
+        <source> كورساتي </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">92,94</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">167,169</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4529372112865406379" datatype="html">
+        <source>Cases</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">177</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6570363013146073520" datatype="html">
+        <source>Dashboard</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">112</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">186</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6821871031768267042" datatype="html">
+        <source> الملف الشخصي </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">115,117</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">189,191</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2414892305215743892" datatype="html">
+        <source> خروج </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">124,126</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/navbar/navbar.component.html</context>
+          <context context-type="linenumber">198,200</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="app_name" datatype="html">
+        <source>نبضة حياة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/services/page-title.service.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_hero_pill" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="l-dot&quot;&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="م"/> منصة نفسية تعليمية مع دكتورة استشاري صحة نفسية </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">10,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_hero_title" datatype="html">
+        <source>رحلتك نحو الشفاء تبدأ من هنا</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_hero_subtitle" datatype="html">
+        <source> منصة <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>نبضة حياة<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> تقدم كورسات نفسية مسجلة وجلسات خاصة تُمكّنك من فهم ذاتك، معالجة جذور الألم، وبناء حياة أكثر سلاماً ووعيًا. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">16,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_hero_cta_consult" datatype="html">
+        <source> احجز جلسة استشارة </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">26,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_hero_cta_courses" datatype="html">
+        <source> اكتشف الكورسات </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">30,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_hero_meta_1" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="dot&quot;&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/> محتوى علمي مبني على مدارس علم النفس الحديثة </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">37,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_hero_meta_2" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="dot&quot;&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/> متابعة نفسية للحالات عبر برامج خاصة </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">41,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_hero_meta_3" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="dot&quot;&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/> خصوصية وسرية تامة في كل خطوة </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">45,47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_featured_eyebrow" datatype="html">
+        <source>أفضل البرامج</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_featured_title" datatype="html">
+        <source>أكثر الكورسات طلبًا</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_featured_subtitle" datatype="html">
+        <source> مجموعة مختارة من أهم البرامج العلاجية والنفسية في منصة نبضة حياة. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">60,62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_course_tag_default" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{ c.categoryId || &quot;عام&quot; }}"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">76,78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_course_open" datatype="html">
+        <source> فتح الكورس </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">102,104</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_course_details" datatype="html">
+        <source> عرض التفاصيل </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">113,115</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_course_join" datatype="html">
+        <source> انضم الآن </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">122,124</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_consult_eyebrow" datatype="html">
+        <source>الاستشارات النفسية</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">136</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_consult_title" datatype="html">
+        <source>جلسات فردية بخصوصية تامة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">137</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_consult_subtitle" datatype="html">
+        <source> استشارات نفسية مع دكتورة استشاري صحة نفسية، لمساعدتك على فهم ما تمر به، ووضع خطة علاجية تناسبك. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">138,141</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_consult_label" datatype="html">
+        <source>جلسات أونلاين</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">146</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_consult_card_title" datatype="html">
+        <source>جلسة استشارة نفسية فردية</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">148</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_consult_desc" datatype="html">
+        <source> مساحة آمنة للحديث عن كل ما يثقل قلبك وعقلك، مع توجيه مهني يساعدك على رؤية أعمق لذاتك، واتخاذ قرارات أكثر وعيًا. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">150,153</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_consult_meta_1" datatype="html">
+        <source>مدة الجلسة: 50 دقيقة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">156</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_consult_meta_2" datatype="html">
+        <source>أونلاين عبر منصات آمنة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">157</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_consult_meta_3" datatype="html">
+        <source>خصوصية وسرية تامة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">158</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_consult_cta" datatype="html">
+        <source>احجز موعدًا الآن</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">161</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_consult_img_alt" datatype="html">
+        <source>جلسة استشارة نفسية</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">167</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_why_eyebrow" datatype="html">
+        <source>لماذا نبضة حياة؟</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">179</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_why_title" datatype="html">
+        <source>منصة نفسية متكاملة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">180</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_why_subtitle" datatype="html">
+        <source> ليست مجرد كورسات؛ بل منظومة نفسية متكاملة تجمع بين العلم، الإنسان، والمتابعة العملية لحالتك النفسية. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">181,184</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_why_card_1_title" datatype="html">
+        <source>محتوى علمي موثوق</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">190</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_why_card_1_text" datatype="html">
+        <source> كورسات مبنية على أسس علم النفس الإكلينيكي ومدارس العلاج الحديثة، بلغة بسيطة وواعية. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">191,194</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_why_card_2_title" datatype="html">
+        <source>متابعة نفسية للحالات</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">199</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_why_card_2_text" datatype="html">
+        <source> برامج موجهة لمرافقة حالتك النفسية، وليس مجرد معلومات نظرية. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">200,202</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_why_card_3_title" datatype="html">
+        <source>تركيز على التعافي والوعي</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">207</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_why_card_3_text" datatype="html">
+        <source> الهدف هو مساعدتك على العيش بسلام داخلي أكبر، لا مجرد التخلص من العرض. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">208,210</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_why_card_4_title" datatype="html">
+        <source>خصوصية وسرية تامة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">215</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_why_card_4_text" datatype="html">
+        <source> كل ما تشاركه يظل في مساحة آمنة ومحترمة، تحفظ خصوصيتك وكرامتك. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">216,218</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonials_eyebrow" datatype="html">
+        <source>آراء المتدربين</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">228</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonials_title" datatype="html">
+        <source>تجارب حقيقية من نبضات حية</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">229</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonials_subtitle" datatype="html">
+        <source> جزء من قصص المتدربين الذين اختاروا البدء في رحلة الشفاء مع نبضة حياة. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">230,232</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonial_1_avatar" datatype="html">
+        <source>ن</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">239</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonial_1_name" datatype="html">
+        <source>نورة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">241</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonial_1_tag" datatype="html">
+        <source>متدربة في صدمات الطفولة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">242</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonial_1_text" datatype="html">
+        <source> لأول مرة أحس إن في حد فاهم الجذر الحقيقي لألمي. الكورس فتح لي أبواب ما كنت أتوقعها، وتعاملي مع نفسي ومع أهلي اختلف تمامًا. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">247,250</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonial_1_label" datatype="html">
+        <source>تغيير عميق من الداخل</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">251</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonial_2_avatar" datatype="html">
+        <source>ر</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">257</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonial_2_name" datatype="html">
+        <source>ريم</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">259</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonial_2_tag" datatype="html">
+        <source>جلسات استشارة شخصية</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">260</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonial_2_text" datatype="html">
+        <source> الجلسات كانت مساحة آمنة جدًا. قدرت أتكلم بدون خوف من الحكم، وطلعت بأفكار وخطوات عملية ساعدتني في قرارات مهمة. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">265,268</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonial_2_label" datatype="html">
+        <source>مساحة آمنة ومٌحتوية</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">269</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonial_3_avatar" datatype="html">
+        <source>س</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">275</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonial_3_name" datatype="html">
+        <source>سارة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">277</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonial_3_tag" datatype="html">
+        <source>كورس أعماق النفس البشرية</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">278</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonial_3_text" datatype="html">
+        <source> البرنامج ساعدني أفهم ليه أكرر نفس العلاقات ونفس الأخطاء. حسيت إني أتعرفت على نفسي من جديد. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">283,286</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home_testimonial_3_label" datatype="html">
+        <source>وعي مختلف بالحياة</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/public/home/home.component.html</context>
+          <context context-type="linenumber">287</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

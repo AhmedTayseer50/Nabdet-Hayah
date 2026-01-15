@@ -1,0 +1,12 @@
+.mycourse-card {
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  background: var(--bg-color-soft);
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+}

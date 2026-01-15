@@ -1,0 +1,61 @@
+<div class="container py-4" dir="rtl">
+  <a routerLink="/admin/dashboard" class="btn btn-link ps-0 mb-3">&larr; رجوع للوحة التحكم</a>
+  <h3 class="mb-3">حالات العملاء (للمدير)</h3>
+
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <div class="d-flex gap-2 mb-3">
+    <select class="form-select w-auto" [(ngModel)]="statusFilter" (ngModelChange)="applyFilter()">
+      <option value="all">الكل</option>
+      <option value="onhold">On Hold</option>
+      <option value="processed">Processed</option>
+    </select>
+    <button class="btn btn-outline-secondary ms-auto" (click)="refresh()" [disabled]="loading">تحديث</button>
+  </div>
+
+  <div *ngIf="loading" class="alert alert-info">جارٍ التحميل…</div>
+
+  <div class="card" *ngIf="!loading">
+    <div class="table-responsive">
+      <table class="table table-sm mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>العميل</th>
+            <th>الكورسات</th>
+            <th>المبلغ</th>
+            <th>الحالة</th>
+            <th>أوامر</th>
+            <th>تاريخ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of filtered">
+            <td>{{ c.userEmail }}<div class="small text-muted">{{ c.userId }}</div></td>
+            <td>
+              <span class="badge text-bg-secondary me-1" *ngFor="let id of (c.courseIds | keyvalue)">{{ id.key }}</span>
+            </td>
+            <td>{{ c.amount }}</td>
+            <td>
+              <span class="badge" [class.text-bg-warning]="c.status==='onhold'" [class.text-bg-success]="c.status==='processed'">
+                {{ c.status }}
+              </span>
+            </td>
+            <td class="d-flex flex-wrap gap-2">
+              <button class="btn btn-sm btn-outline-primary" (click)="grantEnrollments(c)">إتاحة الكورسات</button>
+              <button class="btn btn-sm btn-success" (click)="markProcessed(c)" [disabled]="c.status==='processed'">Mark processed</button>
+              <a *ngIf="c.proofUrl" class="btn btn-sm btn-outline-secondary" [href]="c.proofUrl" target="_blank">صورة الإثبات</a>
+            </td>
+            <td>{{ c.createdAt | date:'short' }}</td>
+          </tr>
+          <tr *ngIf="!filtered.length">
+            <td colspan="6" class="text-center text-muted py-3">لا توجد حالات</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card-footer text-end">
+      <strong>إجمالي المبيعات (Processed):</strong>
+      <span class="ms-2">{{ totalProcessed() }}</span>
+    </div>
+  </div>
+</div>

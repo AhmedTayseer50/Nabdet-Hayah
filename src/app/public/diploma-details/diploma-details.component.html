@@ -1,0 +1,303 @@
+<!-- src/app/public/diploma-details/diploma-details.component.html -->
+
+<div class="hero-topbar">
+  <a routerLink="/diplomas" class="back-link">
+    رجوع لكل الدبلومات
+    <span class="back-icon">←</span>
+  </a>
+</div>
+
+<!-- ✅ HERO -->
+<section class="course-hero" dir="rtl" *ngIf="!loading && diploma as d">
+  <div class="container">
+    <div class="course-hero-inner">
+      <div class="course-hero-text">
+        <div class="course-hero-eyebrow">
+          {{ d.heroEyebrow }}
+        </div>
+
+        <h1 class="course-hero-title">{{ d.title }}</h1>
+
+        <p class="course-hero-tagline">
+          {{ d.heroTagline || d.description }}
+        </p>
+
+        <div class="course-hero-meta">
+          <span class="course-hero-pill">مدة البرنامج: {{ d.programDuration || '—' }}</span>
+          <span class="course-hero-pill">{{ d.targetAudience || '—' }}</span>
+
+          <span class="course-hero-pill" *ngIf="d.meta?.totalCourses">
+            يشمل {{ d.meta?.totalCourses }} كورس
+          </span>
+        </div>
+
+        <div class="course-hero-actions">
+          <button class="btn btn-primary" type="button" (click)="goToPurchase()">
+            اشترك الآن في الدبلومة
+          </button>
+        </div>
+      </div>
+
+      <div class="course-hero-poster-wrapper">
+        <div class="course-hero-poster">
+          <img
+            [src]="d.thumbnail || defaultThumbnail"
+            [alt]="d.title || 'بوستر الدبلومة'"
+          />
+          <div class="poster-play-badge" *ngIf="introVideoSafeUrl">
+            <div class="poster-play-icon">▶</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ LOADING + ERROR -->
+<div class="container mb-3" *ngIf="loading">
+  <div class="alert alert-info">جارٍ التحميل…</div>
+</div>
+
+<div class="container mb-3" *ngIf="error">
+  <div class="alert alert-danger">{{ error }}</div>
+</div>
+
+<!-- ✅ معلومات قبل الشراء -->
+<section class="section" *ngIf="!loading && !error && diploma as d">
+  <div class="container course-info-grid">
+    <div class="course-info-card">
+      <div class="course-info-label">الهدف من الدراسة</div>
+      <div class="course-info-main">{{ d.goalTitle }}</div>
+      <p class="course-info-text">{{ d.goalDescription }}</p>
+    </div>
+
+    <div class="course-info-card">
+      <div class="course-info-label">المدة المتوقعة للدراسة</div>
+      <div class="course-info-main">{{ d.expectedStudyTimeTitle }}</div>
+      <p class="course-info-text">{{ d.expectedStudyTimeDescription }}</p>
+    </div>
+
+    <div class="course-info-card">
+      <div class="course-info-label">الخبرات السابقة</div>
+      <div class="course-info-main">{{ d.prerequisitesTitle }}</div>
+      <p class="course-info-text">{{ d.prerequisitesDescription }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ فيديو تعريفي -->
+<section class="section" *ngIf="introVideoSafeUrl">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">فيديو تعريفي</div>
+      <h2 class="section-title">مقدمة عن الدبلومة وما الذي ستحصل عليه</h2>
+      <p class="section-subtitle">
+        شاهد هذا الفيديو لمعرفة تفاصيل الدبلومة والمسار والمخرجات المتوقعة.
+      </p>
+    </div>
+
+    <div class="course-video-wrapper">
+      <div class="course-video-frame">
+        <iframe
+          [src]="introVideoSafeUrl"
+          title="الفيديو التعريفي للدبلومة"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ مواصفات فنية -->
+<section class="section" *ngIf="!loading && !error && diploma as d">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">مواصفات الدبلومة</div>
+      <h2 class="section-title">معلومات فنية تساعدك قبل الاشتراك</h2>
+      <p class="section-subtitle">تفاصيل مختصرة عن طريقة الدراسة والمحتوى.</p>
+    </div>
+
+    <div class="specs-card">
+      <ul class="specs-list" *ngIf="(d.specs?.length || 0) > 0; else noSpecs">
+        <li *ngFor="let s of d.specs">{{ s }}</li>
+      </ul>
+
+      <ng-template #noSpecs>
+        <p class="text-muted text-center m-0">لا توجد مواصفات مضافة بعد.</p>
+      </ng-template>
+    </div>
+  </div>
+</section>
+
+
+<!-- ✅ محتويات الدبلومة (الكورسات) -->
+<section class="section" *ngIf="!loading && !error">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">محتويات الدبلومة</div>
+      <h2 class="section-title">الكورسات الموجودة داخل المسار</h2>
+      <p class="section-subtitle">
+        هذه الدبلومة عبارة عن مجموعة كورسات مرتبة داخل مسار واحد.
+      </p>
+    </div>
+
+    <div class="courses-grid" *ngIf="includedCourses.length; else noCourses">
+      <article class="course-card" *ngFor="let c of includedCourses">
+        <div
+          class="course-image"
+          [style.background-image]="'url(' + (c.thumbnail || defaultThumbnail) + ')'"
+        >
+          <span class="course-tag">{{ c.categoryId || 'عام' }}</span>
+        </div>
+
+        <div class="course-body">
+          <h3 class="course-title">{{ c.title }}</h3>
+          <p class="course-desc">{{ c.description }}</p>
+
+          <div class="course-meta">
+            <span class="course-price">
+              {{ c.price | currency : 'EGP' : 'symbol' : '1.0-0' }}
+            </span>
+          </div>
+        </div>
+
+        <div class="course-footer">
+          <button class="btn btn-outline" [routerLink]="['/courses', c.id]">
+            عرض تفاصيل الكورس
+          </button>
+        </div>
+      </article>
+    </div>
+
+    <ng-template #noCourses>
+      <p class="text-muted text-center">لا توجد كورسات مضافة للدبلومة بعد.</p>
+    </ng-template>
+  </div>
+</section>
+
+
+
+
+
+<!-- ✅ مزايا المتابعة -->
+<section class="section" *ngIf="!loading && !error && diploma as d">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">مميزات إضافية</div>
+      <h2 class="section-title">متابعة + مجتمع + امتيازات للمشتركين</h2>
+      <p class="section-subtitle">مزايا عملية تساعدك أثناء وبعد الدبلومة.</p>
+    </div>
+
+    <div class="specs-card">
+      <ul class="specs-list" *ngIf="(d.communityPerks?.length || 0) > 0; else noPerks">
+        <li *ngFor="let s of d.communityPerks">{{ s }}</li>
+      </ul>
+
+      <ng-template #noPerks>
+        <p class="text-muted text-center m-0">لا توجد مميزات إضافية مضافة بعد.</p>
+      </ng-template>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ آراء العملاء -->
+<section class="section" *ngIf="!loading && !error && diploma as d">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">آراء المتدربين</div>
+      <h2 class="section-title">ماذا يقول المشتركون؟</h2>
+      <p class="section-subtitle">3 آراء مختصرة من عملاء الدبلومة.</p>
+    </div>
+
+    <div class="testimonials-row">
+      <article class="testimonial-card" *ngFor="let t of d.testimonials || []">
+        <div class="testimonial-header">
+          <div class="testimonial-user">
+            <div class="avatar">{{ (t?.name || '?').slice(0, 1) }}</div>
+            <div>
+              <div class="testimonial-name">{{ t?.name }}</div>
+              <div class="testimonial-tag">{{ t?.tag || 'متدرب' }}</div>
+            </div>
+          </div>
+
+          <div class="testimonial-stars" *ngIf="t?.rating">
+            {{ '★'.repeat(t.rating || 0) }}
+          </div>
+        </div>
+
+        <div class="testimonial-text">{{ t?.text }}</div>
+        <div class="testimonial-label">تجربة واقعية</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ✅ خطة الأسعار -->
+<section class="section" *ngIf="!loading && !error && diploma as d">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">خطط الاشتراك</div>
+      <h2 class="section-title">اختر الخطة الأنسب لرحلتك</h2>
+      <p class="section-subtitle">3 خطط واضحة — اختر ما يناسبك ثم اشترك الآن.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <article
+        class="pricing-card"
+        *ngFor="let p of d.pricingPlans || []"
+        [class.highlight]="!!p?.highlighted"
+      >
+        <div class="pricing-ribbon" *ngIf="p?.highlighted">الأكثر اختيارًا</div>
+
+        <div class="pricing-name">{{ p?.name }}</div>
+        <div class="pricing-badge">{{ p?.badge }}</div>
+        <div class="pricing-price">{{ p?.priceText }}</div>
+        <div class="pricing-note">{{ p?.note }}</div>
+
+        <ul class="pricing-features">
+          <li *ngFor="let f of (p?.features || [])">{{ f }}</li>
+        </ul>
+
+        <button class="btn btn-primary" type="button" (click)="goToPurchase()">
+          اشترك الآن
+        </button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ CTA آخر الصفحة -->
+<section class="bottom-cta" *ngIf="!loading && !error && diploma as d">
+  <div class="container">
+    <p>{{ d.bottomCta?.text }}</p>
+    <button class="btn btn-primary" type="button" (click)="openOfferFromBottomCta()">
+      {{ d.bottomCta?.buttonText || 'اشترك الآن' }}
+    </button>
+  </div>
+</section>
+
+<!-- ✅ POPUP OFFER -->
+<div
+  class="offer-backdrop"
+  *ngIf="!loading && !error && diploma as d"
+  [class.show]="showOfferPopup"
+  (click)="onOfferBackdropClick($event)"
+>
+  <div class="offer-popup">
+    <button class="offer-close" type="button" (click)="closeOffer()" aria-label="إغلاق">×</button>
+
+    <div class="offer-heading">
+      {{ d.offer?.heading || ('عرض خاص بخصم ' + (d.offer?.percent || 30) + '٪') }}
+    </div>
+
+    <div class="offer-badge">لفترة محدودة</div>
+
+    <p class="offer-text">{{ d.offer?.text }}</p>
+
+    <button class="btn btn-primary" type="button" (click)="onOfferSubscribe()">
+      {{ d.offer?.ctaText || 'اشترك الآن' }}
+    </button>
+  </div>
+</div>

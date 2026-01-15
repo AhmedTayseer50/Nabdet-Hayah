@@ -1,0 +1,83 @@
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-eyebrow">جميع الكورسات</div>
+    <h1 class="page-hero-title">برامج نبضة حياة النفسية</h1>
+    <p class="page-hero-subtitle">
+      هنا تجد كل الكورسات المتاحة حاليًا، من صدمات الطفولة إلى أعماق النفس
+      البشرية، مرورًا بالفطرة، قوة التسامح، إعداد القادة من المهد، ودورات خاصة
+      بالمرأة والنجاح.
+    </p>
+  </div>
+</section>
+
+<!-- SEARCH BAR -->
+<div class="container search-container">
+  <label class="sr-only" for="courseSearch">ابحث عن كورس</label>
+  <input
+    id="courseSearch"
+    type="text"
+    class="search-input"
+    placeholder="ابحث عن كورس..."
+    [(ngModel)]="search"
+  />
+</div>
+
+<div class="container py-4">
+  <div *ngIf="loading" class="alert alert-info">جارٍ التحميل…</div>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <div *ngIf="!loading && !error" class="courses-grid">
+    <article
+      class="course-card"
+      *ngFor="let c of courses | searchCourses : search"
+    >
+      <!-- الصورة -->
+      <div
+        class="course-image"
+        [style.background-image]="'url(' + c.thumbnail + ')'"
+      >
+        <img
+          [src]="c.thumbnail"
+          [alt]="c.title"
+          class="sr-only-img"
+          loading="lazy"
+        />
+        <span class="course-tag">{{ c.categoryId || "عام" }}</span>
+      </div>
+
+      <!-- معلومات الكورس -->
+      <div class="course-body">
+        <h3 class="course-title">{{ c.title }}</h3>
+        <p class="course-desc">{{ c.description }}</p>
+
+        <div class="course-meta">
+          <span class="course-level"></span>
+
+          <span class="course-price">
+            {{ c.price | currency : "EGP" : "symbol" : "1.0-0" }}
+          </span>
+        </div>
+      </div>
+
+      <!-- الأزرار -->
+      <div class="course-footer">
+        <!-- ✅ لو المستخدم مسجّل دخول + عنده صلاحية -->
+        <ng-container *ngIf="hasAccess(c.id); else noAccessButtons">
+          <button class="btn btn-open" [routerLink]="['/courses', c.id]">
+            فتح الكورس
+          </button>
+        </ng-container>
+
+        <!-- ❌ لو مش مسجّل دخول أو ملوش صلاحية -->
+        <ng-template #noAccessButtons>
+          <button class="btn" [routerLink]="['/courses', c.id]">
+            عرض التفاصيل
+          </button>
+
+          <button class="btn btn-primary">انضم الآن</button>
+        </ng-template>
+      </div>
+    </article>
+  </div>
+</div>

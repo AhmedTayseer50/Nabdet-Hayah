@@ -1,0 +1,311 @@
+<!-- src/app/admin/diploma-editor/diploma-editor.component.html -->
+
+<div class="container py-4" dir="rtl">
+  <a routerLink="/admin/dashboard" class="btn btn-link ps-0 mb-3">&larr; رجوع للوحة التحكم</a>
+  <h3 class="mb-3">{{ diplomaId ? '✏️ تعديل دبلومة' : '➕ إضافة دبلومة جديدة' }}</h3>
+
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  <div *ngIf="loading" class="alert alert-info">جارٍ التحميل…</div>
+
+  <form *ngIf="!loading" (ngSubmit)="save()">
+
+    <!-- ===== Basics ===== -->
+    <h5 class="mb-2">البيانات الأساسية</h5>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label">العنوان</label>
+        <input class="form-control" [(ngModel)]="data.title" name="title" required />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">التصنيف</label>
+        <input class="form-control" [(ngModel)]="data.categoryId" name="categoryId" />
+      </div>
+
+      <div class="col-12">
+        <label class="form-label">الوصف</label>
+        <textarea class="form-control" rows="3" [(ngModel)]="data.description" name="description"></textarea>
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label">السعر (اختياري)</label>
+        <input type="number" class="form-control" [(ngModel)]="data.price" name="price" />
+      </div>
+
+      <div class="col-md-8">
+        <label class="form-label">الصورة (Thumbnail URL)</label>
+        <input class="form-control" [(ngModel)]="data.thumbnail" name="thumbnail" />
+      </div>
+
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="data.published" name="published" id="published" />
+          <label class="form-check-label" for="published">منشور</label>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-4" />
+
+    <!-- ===== Hero fields ===== -->
+    <h5 class="mb-2">Hero (أعلى صفحة الدبلومة)</h5>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label">Eyebrow</label>
+        <input class="form-control" [(ngModel)]="data.heroEyebrow" name="heroEyebrow" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Tagline</label>
+        <input class="form-control" [(ngModel)]="data.heroTagline" name="heroTagline" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">مدة البرنامج</label>
+        <input class="form-control" [(ngModel)]="data.programDuration" name="programDuration" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">الفئة المستهدفة</label>
+        <input class="form-control" [(ngModel)]="data.targetAudience" name="targetAudience" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Level (اختياري)</label>
+        <input class="form-control" [(ngModel)]="data.meta.level" name="metaLevel" />
+      </div>
+    </div>
+
+    <hr class="my-4" />
+
+    <!-- ===== Info cards ===== -->
+    <h5 class="mb-2">بطاقات المعلومات (قبل الشراء)</h5>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label">الهدف من الدراسة - عنوان</label>
+        <input class="form-control" [(ngModel)]="data.goalTitle" name="goalTitle" />
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">الهدف من الدراسة - وصف</label>
+        <input class="form-control" [(ngModel)]="data.goalDescription" name="goalDescription" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">المدة المتوقعة - عنوان</label>
+        <input class="form-control" [(ngModel)]="data.expectedStudyTimeTitle" name="expectedStudyTimeTitle" />
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">المدة المتوقعة - وصف</label>
+        <input class="form-control" [(ngModel)]="data.expectedStudyTimeDescription" name="expectedStudyTimeDescription" />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">الخبرات السابقة - عنوان</label>
+        <input class="form-control" [(ngModel)]="data.prerequisitesTitle" name="prerequisitesTitle" />
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">الخبرات السابقة - وصف</label>
+        <input class="form-control" [(ngModel)]="data.prerequisitesDescription" name="prerequisitesDescription" />
+      </div>
+    </div>
+
+    <hr class="my-4" />
+
+    <!-- ===== Video ===== -->
+    <h5 class="mb-2">فيديو تعريفي</h5>
+    <div class="row g-3">
+      <div class="col-12">
+        <label class="form-label">Intro Video URL (YouTube embed)</label>
+        <input class="form-control" [(ngModel)]="data.introVideoUrl" name="introVideoUrl" />
+        <div class="form-text">مثال: https://www.youtube.com/embed/XXXXXXXX</div>
+      </div>
+    </div>
+
+    <hr class="my-4" />
+
+    <!-- ===== Specs ===== -->
+    <h5 class="mb-2">المواصفات الفنية / معلومات إضافية</h5>
+    <div class="mb-2 d-flex gap-2">
+      <button type="button" class="btn btn-outline-primary btn-sm" (click)="addSpec()">+ إضافة نقطة</button>
+      <span class="text-muted small align-self-center">اكتب نقاط قصيرة</span>
+    </div>
+
+    <div class="row g-2" *ngFor="let s of data.specs; let i = index">
+      <div class="col-11">
+        <input class="form-control" [(ngModel)]="data.specs[i]" name="spec{{i}}" placeholder="مثال: مدة كل محاضرة 20-30 دقيقة" />
+      </div>
+      <div class="col-1 d-grid">
+        <button type="button" class="btn btn-outline-danger" (click)="removeSpec(i)">×</button>
+      </div>
+    </div>
+
+    <hr class="my-4" />
+
+    <!-- ===== Testimonials ===== -->
+    <h5 class="mb-2">آراء العملاء (على الأقل 3)</h5>
+
+    <div class="card mb-3" *ngFor="let t of data.testimonials; let i = index">
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label class="form-label">الاسم</label>
+            <input class="form-control" [(ngModel)]="data.testimonials[i].name" name="t_name{{i}}" />
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">الصفة (اختياري)</label>
+            <input class="form-control" [(ngModel)]="data.testimonials[i].tag" name="t_tag{{i}}" />
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">التقييم (1-5)</label>
+            <input type="number" min="1" max="5" class="form-control" [(ngModel)]="data.testimonials[i].rating" name="t_rating{{i}}" />
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">النص</label>
+            <textarea class="form-control" rows="2" [(ngModel)]="data.testimonials[i].text" name="t_text{{i}}"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-4" />
+
+    <!-- ===== Pricing (3 plans) ===== -->
+    <h5 class="mb-2">خطط الأسعار (3 خطط)</h5>
+
+    <div class="card mb-3" *ngFor="let p of data.pricingPlans; let pi = index">
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label class="form-label">اسم الخطة</label>
+            <input class="form-control" [(ngModel)]="data.pricingPlans[pi].name" name="p_name{{pi}}" />
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">Badge</label>
+            <input class="form-control" [(ngModel)]="data.pricingPlans[pi].badge" name="p_badge{{pi}}" />
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">السعر (نص)</label>
+            <input class="form-control" [(ngModel)]="data.pricingPlans[pi].priceText" name="p_price{{pi}}" placeholder="مثال: 399 ر.س" />
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">ملاحظة</label>
+            <input class="form-control" [(ngModel)]="data.pricingPlans[pi].note" name="p_note{{pi}}" />
+          </div>
+
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" [(ngModel)]="data.pricingPlans[pi].highlighted" name="p_high{{pi}}" id="high{{pi}}" />
+              <label class="form-check-label" [for]="'high'+pi">خطة مميزة (Highlight)</label>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="d-flex gap-2 mb-2">
+              <button type="button" class="btn btn-outline-primary btn-sm" (click)="addFeature(pi)">+ إضافة ميزة</button>
+              <span class="text-muted small align-self-center">مميزات الخطة</span>
+            </div>
+
+            <div class="row g-2" *ngFor="let f of data.pricingPlans[pi].features; let fi = index">
+              <div class="col-11">
+                <input class="form-control" [(ngModel)]="data.pricingPlans[pi].features[fi]" name="p_f{{pi}}_{{fi}}" />
+              </div>
+              <div class="col-1 d-grid">
+                <button type="button" class="btn btn-outline-danger" (click)="removeFeature(pi, fi)">×</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-4" />
+
+    <!-- ===== Community Perks ===== -->
+    <h5 class="mb-2">مميزات المتابعة (WhatsApp / Facebook + خصومات جلسات)</h5>
+
+    <div class="mb-2 d-flex gap-2">
+      <button type="button" class="btn btn-outline-primary btn-sm" (click)="addPerk()">+ إضافة ميزة</button>
+    </div>
+
+    <div class="row g-2" *ngFor="let p of data.communityPerks; let i = index">
+      <div class="col-11">
+        <input class="form-control" [(ngModel)]="data.communityPerks[i]" name="perk{{i}}" placeholder="مثال: جروب واتساب للأسئلة والمتابعة بعد الشراء" />
+      </div>
+      <div class="col-1 d-grid">
+        <button type="button" class="btn btn-outline-danger" (click)="removePerk(i)">×</button>
+      </div>
+    </div>
+
+    <hr class="my-4" />
+
+    <!-- ===== Offer popup ===== -->
+    <h5 class="mb-2">عرض آخر الصفحة (Popup خصم)</h5>
+    <div class="row g-3">
+      <div class="col-md-3">
+        <label class="form-label">نسبة الخصم</label>
+        <input type="number" class="form-control" [(ngModel)]="data.offer.percent" name="offerPercent" />
+      </div>
+
+      <div class="col-md-9">
+        <label class="form-label">عنوان العرض</label>
+        <input class="form-control" [(ngModel)]="data.offer.heading" name="offerHeading" />
+      </div>
+
+      <div class="col-12">
+        <label class="form-label">نص العرض</label>
+        <textarea class="form-control" rows="2" [(ngModel)]="data.offer.text" name="offerText"></textarea>
+      </div>
+
+      <div class="col-12">
+        <label class="form-label">نص زر CTA</label>
+        <input class="form-control" [(ngModel)]="data.offer.ctaText" name="offerCtaText" />
+      </div>
+    </div>
+
+    <hr class="my-4" />
+
+    <!-- ===== Bottom CTA ===== -->
+    <h5 class="mb-2">CTA آخر الصفحة</h5>
+    <div class="row g-3">
+      <div class="col-12">
+        <label class="form-label">النص</label>
+        <input class="form-control" [(ngModel)]="data.bottomCta.text" name="bottomCtaText" />
+      </div>
+      <div class="col-12">
+        <label class="form-label">نص الزر</label>
+        <input class="form-control" [(ngModel)]="data.bottomCta.buttonText" name="bottomCtaBtn" />
+      </div>
+    </div>
+
+    <hr class="my-4" />
+
+    <!-- ===== Courses in diploma ===== -->
+    <h5 class="mb-2">📚 كورسات الدبلومة</h5>
+    <div class="text-muted small mb-3">اختر الكورسات اللي هتتجمع داخل الدبلومة:</div>
+
+    <div class="list-group">
+      <label class="list-group-item d-flex align-items-center gap-2" *ngFor="let c of courses">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          [checked]="isSelected(c.id)"
+          (change)="toggleCourse(c.id, $any($event.target).checked)"
+        />
+        <span>{{ c.title || c.id }}</span>
+        <span class="ms-auto small text-muted">{{ c.id }}</span>
+      </label>
+    </div>
+
+    <div class="mt-4 d-flex gap-2">
+      <button class="btn btn-primary" type="submit">حفظ</button>
+      <a class="btn btn-outline-secondary" routerLink="/admin/dashboard">إلغاء</a>
+    </div>
+  </form>
+</div>

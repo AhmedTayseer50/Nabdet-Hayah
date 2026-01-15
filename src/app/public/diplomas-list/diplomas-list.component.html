@@ -1,0 +1,77 @@
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-eyebrow">جميع الدبلومات</div>
+    <h1 class="page-hero-title">دبلومات نبضة حياة</h1>
+    <p class="page-hero-subtitle">
+      هنا تجد الدبلومات المتاحة حاليًا — كل دبلومة عبارة عن مجموعة كورسات مرتبة
+      داخل مسار واحد.
+    </p>
+  </div>
+</section>
+
+<!-- SEARCH BAR -->
+<div class="container search-container">
+  <label class="sr-only" for="diplomaSearch">ابحث عن دبلومة</label>
+  <input
+    id="diplomaSearch"
+    type="text"
+    class="search-input"
+    placeholder="ابحث عن دبلومة..."
+    [(ngModel)]="search"
+  />
+</div>
+
+<div class="container py-4" dir="rtl">
+  <div *ngIf="loading" class="alert alert-info">جارٍ التحميل…</div>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <div *ngIf="!loading && !error" class="courses-grid">
+    <article class="course-card" *ngFor="let d of filteredDiplomas()">
+      <div
+        class="course-image"
+        [style.background-image]="'url(' + d.thumbnail + ')'"
+      >
+        <img
+          [src]="d.thumbnail"
+          [alt]="d.title"
+          class="sr-only-img"
+          loading="lazy"
+        />
+        <span class="course-tag">{{ d.categoryId || "عام" }}</span>
+      </div>
+
+      <div class="course-body">
+        <h3 class="course-title">{{ d.title }}</h3>
+        <p class="course-desc">{{ d.description }}</p>
+
+        <div class="course-meta">
+          <div class="d-flex flex-column gap-1">
+            <span class="small text-muted" *ngIf="d.meta?.totalCourses">
+             يشمل {{ d.meta?.totalCourses || 0 }} كورس
+            </span>
+            <span class="small text-muted" *ngIf="d.programDuration">
+              مدة البرنامج: {{ d.programDuration }}
+            </span>
+            <span class="small text-muted" *ngIf="d.meta?.level">
+             المستوى: {{ d.meta?.level || '—' }}
+            </span>
+          </div>
+
+          <span class="course-price">
+            {{ d.price | currency : "EGP" : "symbol" : "1.0-0" }}
+          </span>
+        </div>
+      </div>
+
+      <div class="course-footer">
+        <button class="btn" [routerLink]="['/diplomas', d.id]">
+          عرض التفاصيل
+        </button>
+        <button class="btn btn-primary" [routerLink]="['/diplomas', d.id]">
+          انضم الآن
+        </button>
+      </div>
+    </article>
+  </div>
+</div>
