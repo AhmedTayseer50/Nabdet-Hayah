@@ -5,6 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:ar": "ng build -c ar",
+    "build:en": "ng build -c en --delete-output-path=false",
+    "build:vercel": "npm run build:ar && npm run build:en",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

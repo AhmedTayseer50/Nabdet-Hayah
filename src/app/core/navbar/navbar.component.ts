@@ -1,6 +1,6 @@
 // src/app/core/navbar/navbar.component.ts
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnDestroy, OnInit, isDevMode } from '@angular/core';
+import { of, Subscription, switchMap, catchError } from 'rxjs';
 import { Router } from '@angular/router';
 
 import { AuthService } from 'src/app/auth/services/auth.service';
@@ -24,91 +24,90 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   isMenuOpen = false;
 
-  // ✅ Theme state
+  // Theme
   isDarkTheme = false;
   private readonly THEME_KEY = 'theme'; // 'dark' | 'light'
 
-  // ✅ Language state
+  // Language
   currentLang: 'ar' | 'en' = 'ar';
 
   private sub?: Subscription;
 
   ngOnInit(): void {
-    // ✅ Apply saved theme on load
     this.initTheme();
 
-    // ✅ Detect current language from URL: /ar/... or /en/...
-    const seg = (this.router.url.split('?')[0].split('#')[0].split('/')[1] || 'ar') as any;
-    this.currentLang = seg === 'en' ? 'en' : 'ar';
+    // ✅ Detect language from real browser path: /ar/... or /en/...
+    this.currentLang = this.detectLangFromPath();
 
-    // راقب حالة المستخدم وحدث الأعلام (أدمن/موظف/معطّل)
-    this.sub = this.auth.user$.subscribe(async (u) => {
-      if (!u) {
-        this.isAdmin = false;
-        this.isDisabled = false;
-        this.isStaff = false;
-        return;
-      }
-      try {
-        const [adminFlag, disabledFlag, staffFlag] = await Promise.all([
-          this.userSvc.isAdmin(u.uid),
-          this.userSvc.isDisabled(u.uid),
-          this.userSvc.isStaff(u.uid)
-        ]);
-        this.isAdmin = adminFlag;
-        this.isDisabled = disabledFlag;
-        this.isStaff = staffFlag;
-      } catch {
-        this.isAdmin = false;
-        this.isDisabled = false;
-        this.isStaff = false;
-      }
+    // user roles
+    this.sub = this.auth.user$.pipe(
+      switchMap(user => {
+        if (!user) return of({ isAdmin: false, isDisabled: false, isStaff: false });
+
+        return Promise.all([
+          this.userSvc.isAdmin(user.uid),
+          this.userSvc.isDisabled(user.uid),
+          this.userSvc.isStaff(user.uid)
+        ]).then(([isAdmin, isDisabled, isStaff]) => ({ isAdmin, isDisabled, isStaff }));
+      }),
+      catchError(() => of({ isAdmin: false, isDisabled: false, isStaff: false }))
+    ).subscribe(roles => {
+      this.isAdmin = roles.isAdmin;
+      this.isDisabled = roles.isDisabled;
+      this.isStaff = roles.isStaff;
     });
   }
 
-  // ✅ Read & apply theme from localStorage (fallback light)
+  private detectLangFromPath(): 'ar' | 'en' {
+    const seg = window.location.pathname.split('/')[1];
+    return seg === 'en' ? 'en' : 'ar';
+  }
+
   private initTheme(): void {
     const saved = (localStorage.getItem(this.THEME_KEY) || 'light').toLowerCase();
     this.isDarkTheme = saved === 'dark';
     this.applyThemeClass();
   }
 
-  // ✅ Toggle theme on click
   toggleTheme(): void {
     this.isDarkTheme = !this.isDarkTheme;
     localStorage.setItem(this.THEME_KEY, this.isDarkTheme ? 'dark' : 'light');
     this.applyThemeClass();
   }
 
-  // ✅ Add/remove body.dark-theme
   private applyThemeClass(): void {
     document.body.classList.toggle('dark-theme', this.isDarkTheme);
   }
 
-  // ✅ Switch between /ar and /en while keeping the same route
-switchLanguage(): void {
-  const url = this.router.url; // includes query params + fragment sometimes
-  const [pathWithLeadingSlash, queryAndHash] = url.split('?');
+  // ✅ Switch /ar <-> /en and keep same route
+  switchLanguage(): void {
+    const nextLang = this.currentLang === 'ar' ? 'en' : 'ar';
+    const { pathname, search, hash } = window.location;
 
-  const parts = pathWithLeadingSlash.split('/'); // ["", "en", "courses", "1"]
-  const first = parts[1];
+    const parts = pathname.split('/');
+    const first = parts[1];
 
-  // ensure we have a locale segment
-  if (first !== 'ar' && first !== 'en') {
-    parts.splice(1, 0, this.currentLang);
+    let restPath = pathname;
+
+    // if URL starts with /ar or /en
+    if (first === 'ar' || first === 'en') {
+      restPath = '/' + parts.slice(2).join('/');
+      if (restPath === '/' || restPath === '') restPath = '/';
+    }
+
+    const newUrl = `/${nextLang}${restPath}${search}${hash}`;
+
+    if (isDevMode()) {
+      // لو أنت فعلاً شغال بـ portين محلياً
+      const port = nextLang === 'en' ? '4201' : '4200';
+      const host = window.location.hostname;
+      const protocol = window.location.protocol;
+      window.location.assign(`${protocol}//${host}:${port}${newUrl}`);
+    } else {
+      // Prod (Vercel): Reload to load correct localized bundles
+      window.location.assign(newUrl);
+    }
   }
-
-  const nextLang: 'ar' | 'en' = this.currentLang === 'ar' ? 'en' : 'ar';
-  parts[1] = nextLang;
-
-  const nextPath = parts.join('/') || '/';
-  this.currentLang = nextLang;
-  this.isMenuOpen = false;
-
-  // ✅ IMPORTANT: force full reload so Angular loads the correct localized bundles
-  const nextUrl = queryAndHash ? `${nextPath}?${queryAndHash}` : nextPath;
-  window.location.assign(nextUrl);
-}
 
   ngOnDestroy(): void {
     this.sub?.unsubscribe();
