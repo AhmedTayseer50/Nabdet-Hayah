@@ -7,11 +7,9 @@
     { "source": "/", "destination": "/ar/", "permanent": false }
   ],
 
-  "routes": [
-    { "handle": "filesystem" },
-
-    { "src": "^/ar(?:/.*)?$", "dest": "/ar/index.html" },
-    { "src": "^/en(?:/.*)?$", "dest": "/en/index.html" }
+  "rewrites": [
+    { "source": "/ar/:path*", "destination": "/ar/index.html" },
+    { "source": "/en/:path*", "destination": "/en/index.html" }
   ],
 
   "headers": [
