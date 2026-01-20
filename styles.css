@@ -1,0 +1,165 @@
+/* =====================================================
+   GLOBAL THEME VARIABLES
+===================================================== */
+:root {
+  /* Colors */
+  --bg-color: #f3efea;
+  --bg-color-soft: #ffffff;
+  --text-color: #222222;
+  --text-muted: #555555;
+  --primary-color: #5e4bb6;
+  --primary-soft: #a88cff;
+  --accent-color: #3eb489;
+  --border-color: #e0e0e0;
+  --hero-overlay: rgba(88, 70, 165, 0.35);
+
+  /* Shadows */
+  --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+
+  /* Layout */
+  --app-container-max: 1200px;
+  --app-container-pad: 24px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+}
+
+/* Dark Theme */
+body.dark-theme {
+  --bg-color: #121212;
+  --bg-color-soft: #1e1e1e;
+  --text-color: #f5f5f5;
+  --text-muted: #bbbbbb;
+  --primary-color: #a88cff;
+  --primary-soft: #5e4bb6;
+  --accent-color: #3eb489;
+  --border-color: #333333;
+  --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  --hero-overlay: rgba(12, 12, 12, 0.6);
+}
+
+/* =====================================================
+   RESET & BASE
+===================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Cairo", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.7;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =====================================================
+   RESPONSIVE SPACING (GLOBAL)
+===================================================== */
+@media (max-width: 576px) {
+  :root {
+    --app-container-pad: 12px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 992px) {
+  :root {
+    --app-container-pad: 16px;
+  }
+}
+
+/* =====================================================
+   LAYOUT HELPERS
+===================================================== */
+
+/* Use instead of overriding Bootstrap container */
+.page-container {
+  width: 100%;
+  max-width: var(--app-container-max);
+  margin-inline: auto;
+  padding-inline: var(--app-container-pad);
+}
+
+/* Full page layout */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =====================================================
+   HEADER (NAVBAR WRAPPER)
+===================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(243, 239, 234, 0.95);
+}
+
+/* Glass effect if supported */
+@supports (backdrop-filter: blur(16px)) {
+  header {
+    backdrop-filter: blur(16px);
+    background: linear-gradient(
+      to bottom,
+      rgba(243, 239, 234, 0.95),
+      rgba(243, 239, 234, 0.75)
+    );
+  }
+
+  body.dark-theme header {
+    background: linear-gradient(
+      to bottom,
+      rgba(18, 18, 18, 0.95),
+      rgba(18, 18, 18, 0.75)
+    );
+  }
+}
+
+/* =====================================================
+   COMMON UI HELPERS
+===================================================== */
+.card-ui {
+  background-color: var(--bg-color-soft);
+  border-radius: var(--radius-md);
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-soft);
+  border-color: var(--primary-soft);
+}
+
+/* =====================================================
+   SAFE DEFAULTS
+===================================================== */
+table {
+  width: 100%;
+}
+
